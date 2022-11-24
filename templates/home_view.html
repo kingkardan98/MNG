@@ -1,6 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <body>
-        <h1>This is MNG</h1>
-    </body>
-</html>
+{% extends 'base.html'%}
+
+{% block page_title %}
+Home page
+{% endblock %}
+
+{% block body_content %}
+
+{% include 'navbar.html' %}
+
+<h1>Home page</h1>
+
+{% endblock %}
