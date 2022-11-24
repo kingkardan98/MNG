@@ -8,6 +8,6 @@ def home_view(request):
     html = read_html('home_view.html')
     return HttpResponse(html, status=200)
 
-def contact_view(request):
-    html = read_html('contact_view.html')
+def contacts_view(request):
+    html = read_html('contacts_view.html')
     return HttpResponse(html, status=200)
