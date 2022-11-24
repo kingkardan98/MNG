@@ -6,7 +6,7 @@ from utils import read_html
 
 def home_view(request):
     html = read_html('home_view.html')
-    return HttpResponse(html, status=200)
+    return render(request, "html_views/home_view.html", {})
 
 def contacts_view(request):
     html = read_html('contacts_view.html')
