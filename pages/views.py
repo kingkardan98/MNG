@@ -7,4 +7,7 @@ def home_view(request):
     return render(request, "home_view.html", {})
 
 def contacts_view(request):
-    return render(request, "contacts_view.html", {})
+    context = {
+        "contacts_text": "Contact information"
+    }
+    return render(request, "contacts_view.html", context)
