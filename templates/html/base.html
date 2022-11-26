@@ -1,6 +1,14 @@
+{% load static %} <!-- Doesn't work yet -->
+
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8" />
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="{% static 'favicon_light.ico' %}"> <!-- Doesn't work yet-->
+            media="(prefers-color-scheme: light)">
         <title>{% block page_title %}root title{% endblock %}</title>
     </head>
     <body>
