@@ -1,15 +1,20 @@
-{% load static %} <!-- Doesn't work yet -->
+{% load static %}
 
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <link
-            rel="icon"
-            type="image/x-icon"
-            href="{% static 'favicon_light.ico' %}"> <!-- Doesn't work yet-->
+        <meta charset="UTF-8">
+        <link 
+            rel="shortcut icon" 
+            type="icon" 
+            href="{% static '/favicon/favicon-black.ico' %}"
             media="(prefers-color-scheme: light)">
-        <title>{% block page_title %}root title{% endblock %}</title>
+
+            <link 
+                rel="shortcut icon" 
+                type="icon" 
+                href="{% static '/favicon/favicon-white.ico' %}"
+                media="(prefers-color-scheme: dark)">
     </head>
     <body>
         {% block body_content %}
