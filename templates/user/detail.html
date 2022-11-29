@@ -10,9 +10,9 @@ MNNG - User info
 
 <h1>User info</h1>
 
-<p>Username: {{ username }}</p>
-<p>Email: {{ email }}</p>
-<p>Availability: ${{ availability }}</p>
-<p>Spending limit: ${{ spendingLimit }}</p>
+<p>Username: {{ obj.username }}</p>
+<p>Email: {{ obj.email }}</p>
+<p>Availability: ${{ obj.availability }}</p>
+<p>Spending limit: ${{ obj.spendingLimit }}</p>
 
 {% endblock %}
