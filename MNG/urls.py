@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path
 
 from pages.views import home_view, contacts_view
+from user.views import user_detail_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name='home'),
-    path('contacts/', contacts_view, name='contacts')
+    path('contacts/', contacts_view, name='contacts'),
+    path('user/', user_detail_view, name='user_detail_view'),
 ]
