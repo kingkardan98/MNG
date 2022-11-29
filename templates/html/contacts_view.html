@@ -14,7 +14,7 @@
     {{ contacts_text }}
     <ul>
         {% for contact, number in contacts_dict.items %}
-        <li> {{ contact }} : {{ number }}</li>
+        <li> {{ contact|capfirst }} : {{ number }}</li>
         {% endfor %}
     </ul>
 </p>

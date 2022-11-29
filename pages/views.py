@@ -9,6 +9,6 @@ def home_view(request):
 def contacts_view(request):
     context = {
         "contacts_text": "Contact information",
-        "contacts_dict": {"Mary": "123", "Jackson": "000", "Meeseeks": "4446064447777833777063377773333557777"} 
+        "contacts_dict": {"mary": "123", "jackson": "000", "meeseeks": "4446064447777833777063377773333557777"} 
     }
     return render(request, "contacts_view.html", context)
