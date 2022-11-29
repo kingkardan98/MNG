@@ -1,7 +1,7 @@
 {% extends 'base.html'%}
 
 {% block page_title %}
-Contacts
+{{ contacts_text }}
 {% endblock %}
 
 {% block body_content %}
@@ -12,6 +12,11 @@ Contacts
 
 <p>
     {{ contacts_text }}
+    <ul>
+        {% for contact, number in contacts_dict.items %}
+        <li> {{ contact }} : {{ number }}</li>
+        {% endfor %}
+    </ul>
 </p>
 
 {% endblock %}
