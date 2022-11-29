@@ -6,10 +6,10 @@ from .models import User
 def user_detail_view(request):
     obj = User.objects.get(id=1)
     context = {
-        "Username": obj.username,
-        "Email": obj.email,
-        "Money availability": obj.moneyAvailability,
-        "Spending limit": obj.spendingLimit
+        "username": obj.username,
+        "email": obj.email,
+        "availability": obj.availability,
+        "spendingLimit": obj.spendingLimit,
     }
 
     return render(request, "user/detail.html", context)
