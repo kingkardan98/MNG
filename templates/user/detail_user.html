@@ -1,0 +1,18 @@
+{% extends 'html/base.html' %}
+
+{% block html_title %}
+MNNG - User info
+{% endblock %}
+
+{% block body_content %}
+
+{% include 'html/navbar.html' %}
+
+<h1>User info</h1>
+
+<p>Username: {{ obj.username }}</p>
+<p>Email: {{ obj.email }}</p>
+<p>Availability: ${{ obj.availability }}</p>
+<p>Spending limit: ${{ obj.spendingLimit }}</p>
+
+{% endblock %}
