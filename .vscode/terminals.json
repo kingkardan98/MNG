@@ -10,7 +10,7 @@
             "name": "Command Prompt Shell",
             "description": "Command Prompt Shell, just to rummage in the MNG folder.",
             "commands":[
-                "cd C:\\Users\\Francesco Bambina\\Desktop\\Projects\\MNG",
+                "cd /Users/francescobambina/Desktop/Coding Projects/MNNG",
                 "clear"
             ]
         },
@@ -19,7 +19,7 @@
             "name": "Runserver Shell",
             "description": "Command Prompt Shell to run the Django Server",
             "commands":[
-                "cd C:\\Users\\Francesco Bambina\\Desktop\\Projects\\MNG",
+                "cd /Users/francescobambina/Desktop/Coding Projects/MNNG",
                 "clear",
                 "python3 manage.py runserver"
             ]
@@ -29,6 +29,7 @@
             "name": "Git Bash Shell",
             "description": "Git Bash Shell to update Git repo.",
             "commands":[
+                "cd /Users/francescobambina/Desktop/Coding Projects/MNNG",
                 "clear"
             ]
         }
