@@ -31,7 +31,8 @@
             "commands":[
                 "cd /Users/francescobambina/Desktop/Coding Projects/MNNG",
                 "clear"
-            ]
+            ],
+            "color": "terminal.ansiCyan"
         }
     ]
 }
