@@ -10,8 +10,8 @@ MNNG - Create user
 
 <h1>Create user</h1>
 
-<form method="POST"> {% csrf_token %}
-    {{ form.as_p }}
+<form method="POST">
+    <input type="text" name="title" placeholder="Your title" />
     <input type="submit" value="Save" />
 </form>
 

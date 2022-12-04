@@ -5,6 +5,12 @@ from .forms import UserForm
 # Create your views here.
 
 def user_create_view(request):
+    context = {}
+
+    return render(request, 'user/create_user.html', context)
+
+"""
+def user_create_view(request):
     form = UserForm(request.POST or None)
     if form.is_valid():
         form.save()
@@ -14,6 +20,7 @@ def user_create_view(request):
     }
 
     return render(request, 'user/create_user.html', context)
+"""
 
 def user_detail_view(request):
     obj = User.objects.get(id=1)
