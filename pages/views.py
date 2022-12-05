@@ -12,3 +12,12 @@ def contacts_view(request):
         "contacts_dict": {"mary": "123", "jackson": "000", "meeseeks": "4446064447777833777063377773333557777"} 
     }
     return render(request, "html/contacts_view.html", context)
+
+def about_view(request):
+    context = {
+        "about": "This website is a small project created by me as a presentation for a job interview.",
+        "email": "mail@mailservice.com",
+        "phone": "123 4567890"
+    }
+
+    return render(request, "html/about_view.html", context)
