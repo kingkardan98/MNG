@@ -2,11 +2,65 @@ from django import forms
 from .models import User
 
 class UserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
-    confirm_password = forms.CharField(widget=forms.PasswordInput)
-    email = forms.CharField(widget=forms.EmailInput)
-    availability = forms.FloatField()
-    spendable = forms.FloatField()
+    availability = forms.FloatField(required=True, 
+                                    label='', 
+                                    widget=forms.NumberInput(
+        attrs={
+            'label': 'availability',
+            'placeholder': 'Availability'
+            }
+        )
+    )
+
+    spendable = forms.FloatField(required=True, 
+                                 label='', 
+                                 widget=forms.NumberInput(
+        attrs={
+            'label': 'spendable',
+            'placeholder': 'Spending limit'
+            }
+        )
+    )
+
+    username = forms.CharField(required=True, 
+                               label='', 
+                               widget=forms.TextInput(
+        attrs={
+            'label': 'username',
+            'placeholder': 'Username'
+            }
+        )
+    )
+
+    email = forms.CharField(required=True, 
+                            label='',
+                            widget=forms.EmailInput(
+        attrs={
+            'label': 'email',
+            'placeholder': 'Email'
+            }
+        )
+    )
+
+    password = forms.CharField(required=True, 
+                               label='', 
+                               widget=forms.PasswordInput(
+        attrs={
+            'label': 'password',
+            'placeholder': 'Password'
+            }
+        )
+    )
+
+    confirm_password = forms.CharField(required=True, 
+                                       label='', 
+                                       widget=forms.PasswordInput(
+        attrs={
+            'label': 'confirm_password',
+            'placeholder': 'Confirm password'
+            }
+        )
+    )
 
     class Meta:
         model = User
