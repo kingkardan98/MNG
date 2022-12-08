@@ -9,3 +9,6 @@ class User(models.Model):
 
     availability = models.DecimalField(max_digits=10000, decimal_places=2)
     spendable = models.DecimalField(max_digits=10000, decimal_places=2, db_column='spending')
+
+    def get_absolute_url(self):
+        return f"/user/{self.id}"
