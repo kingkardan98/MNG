@@ -83,10 +83,8 @@ class UserForm(forms.ModelForm):
             self.add_error('confirm_password',
                 "Passwords don't match."
             )
-            
         if spendable > availability:
             self.add_error('spendable',
                 "Spending limit can't be higher than availability."
             )
-
         return cleaned_data
