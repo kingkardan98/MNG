@@ -1,6 +1,8 @@
 from django import forms
 from .models import User
 
+from .user_create_data_check import checkSuite
+
 class UserForm(forms.ModelForm):
     availability = forms.FloatField(required=True, 
                                     label='', 
@@ -74,17 +76,16 @@ class UserForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super(UserForm, self).clean()
-        password = cleaned_data.get("password")
-        confirm_password = cleaned_data.get("confirm_password")
-        spendable = cleaned_data.get("spendable")
-        availability = cleaned_data.get("availability")
 
-        if password != confirm_password:
-            self.add_error('confirm_password',
-                "Passwords don't match."
-            )
-        if spendable > availability:
-            self.add_error('spendable',
-                "Spending limit can't be higher than availability."
-            )
+        data_dict = {
+            'password': cleaned_data.get("password"),
+            'confirm_password': cleaned_data.get("confirm_password"),
+            'spendable': cleaned_data.get("spendable"),
+            'availability': cleaned_data.get("availability")
+        }
+
+        errorList, relations, error_messages = checkSuite(data_dict)
+        for error in errorList:
+            self.add_error(relations[error], error_messages[error])
+        
         return cleaned_data
