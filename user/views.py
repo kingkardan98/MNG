@@ -18,8 +18,8 @@ def user_create_view(request):
         }
     return render(request, 'user/create_user.html', context)
 
-def user_detail_view(request):
-    obj = User.objects.get(id=2)
+def user_detail_view(request, id):
+    obj = User.objects.get(id=id)
     context = {
         "obj": obj
     }

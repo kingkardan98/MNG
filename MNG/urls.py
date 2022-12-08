@@ -24,7 +24,7 @@ urlpatterns = [
     path('', home_view, name='home'),
     path('contacts/', contacts_view, name='contacts'),
     path('about/', about_view, name='about_view'),
-    path('detail_user/', user_detail_view, name='user_detail_view'),
+    path('user/<int:id>', user_detail_view, name='user_detail_view'),
     path('create_user', user_create_view, name='user_create_view'),
     path('success/', create_success_view, name="create_success_view"),
 ]
