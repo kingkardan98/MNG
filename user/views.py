@@ -31,6 +31,38 @@ def user_detail_view(request, id):
 
     return render(request, "user/detail_user.html", context)
 
+def update_user_view(request, id):
+    # The U in CRUD
+    obj = get_object_or_404(User, id=id)
+    form = UserForm()
+    context = {
+        "obj": obj,
+        "form": form
+    }
+
+    return render(request, "user/update_user.html", context)
+
+def updateuser(request, id):
+    username = request.POST['username']
+    email = request.POST['email']
+    password = request.POST['password']
+    availability = request.POST['availability']
+    spendable = request.POST['spendable']
+
+    user = User.objects.get(id=id)
+    user.username = username
+    user.email = email
+    user.password = password
+    user.availability = availability
+    user.spendable = spendable
+    user.save()
+
+    return redirect(reverse('update_success_view'))
+
+def update_success_view(request):
+    return render(request, 'user/update_success.html', {})
+
+
 def delete_user_view(request, id):
     # The D in CRUD
     obj = get_object_or_404(User, id=id)
