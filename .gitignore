@@ -1,6 +1,6 @@
 *.env
 .DS_*
-
+.DS_Store
 .vscode/*
 
 # Byte-compiled / optimized / DLL files
