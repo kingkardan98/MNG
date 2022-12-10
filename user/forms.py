@@ -89,3 +89,24 @@ class UserForm(forms.ModelForm):
             self.add_error(relations[error], error_messages[error])
         
         return cleaned_data
+
+class UserUpdateForm(UserForm):
+    password = forms.CharField(required=True, 
+                               label='', 
+                               widget=forms.TextInput(
+        attrs={
+            'label': 'password',
+            'placeholder': 'Password'
+            }
+        )
+    )
+
+    confirm_password = forms.CharField(required=True, 
+                               label='', 
+                               widget=forms.TextInput(
+        attrs={
+            'label': 'confirm_password',
+            'placeholder': 'Confirm password'
+            }
+        )
+    )

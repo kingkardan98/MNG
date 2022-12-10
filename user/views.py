@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from .models import User
-from .forms import UserForm
+from .forms import UserForm, UserUpdateForm
 
 # Create your views here.
 
@@ -34,7 +34,15 @@ def user_detail_view(request, id):
 def update_user_view(request, id):
     # The U in CRUD
     obj = get_object_or_404(User, id=id)
-    form = UserForm()
+    data = {
+        'availability': obj.availability,
+        'spendable': obj.spendable,
+        'username': obj.username,
+        'email': obj.email,
+        'password': obj.password,
+        'confirm_password': obj.password
+    }
+    form = UserUpdateForm(data)
     context = {
         "obj": obj,
         "form": form
@@ -42,7 +50,7 @@ def update_user_view(request, id):
 
     return render(request, "user/update_user.html", context)
 
-def updateuser(request, id):
+def updateuser(request, id, obj):
     username = request.POST['username']
     email = request.POST['email']
     password = request.POST['password']
