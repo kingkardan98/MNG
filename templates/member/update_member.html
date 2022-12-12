@@ -18,26 +18,31 @@ MNNG - Update user
 <p>Availability: ${{ obj.availability }}</p>
 <p>Spending limit: ${{ obj.spendable }}</p>
 
-<h2>Update your information (leave as is if not intending to change)</h2>
+<p>
+    <h2>Update your information</h2>
+</p>
+<p>
+    <h3>(You may change your password in this step, or just type it in again.)</h3>
+</p>
 
 <form action='updatemember' method="POST">{% csrf_token %}
     <p>
-        <h4> Availability: {{ form.availability }} </h4>
+        <h6> Availability: {{ form.availability }} </h6>
     </p>
     <p>
-        <h4> Spending limit: {{ form.spendable }} </h4>
+        <h6> Spending limit: {{ form.spendable }} </h6>
     </p>
     <p>
-        <h4> Username: {{ form.username }} </h4>
+        <h6> Username: {{ form.username }} </h6>
     </p>
     <p>
-        <h4> Email: {{form.email }} </h4>
+        <h6> Email: {{form.email }} </h6>
     </p>
     <p>
-        <h4> Password: {{ form.password }} </h4>
+        <h6> Password: {{ form.password }} </h6>
     </p>
     <p>
-        <h4> Confirm password: {{ form.confirm_password }} </h4>
+        <h6> Confirm password: {{ form.confirm_password }} </h6>
     </p>
     <input type="submit" value="Update user" />
 </form>

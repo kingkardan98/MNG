@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from .models import Member
-from .forms import MemberForm, MemberUpdateForm
+from .forms import MemberForm
 
 # Create your views here.
 
@@ -34,15 +34,18 @@ def member_detail_view(request, username):
 def update_member_view(request, username):
     # The U in CRUD
     obj = get_object_or_404(Member, username=username)
-    data = {
-        'availability': obj.availability,
-        'spendable': obj.spendable,
-        'username': obj.username,
-        'email': obj.email,
-        'password': obj.password,
-        'confirm_password': obj.password
-    }
-    form = MemberUpdateForm(data)
+
+    if request.method == "POST":
+        form = Member.objects.filter()
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('updatemember', kwargs={'username': username}))
+        else:
+            print("Invalid form.")
+
+    else:
+        form = MemberForm(instance=obj)
+
     context = {
         "obj": obj,
         "form": form
@@ -50,22 +53,20 @@ def update_member_view(request, username):
 
     return render(request, "member/update_member.html", context)
 
-def updatemember(request, sign_in_name):
-    username = request.POST['username']
+def updatemember(request, username):
+    memberName = request.POST['username']
     email = request.POST['email']
     password = request.POST['password']
     availability = request.POST['availability']
     spendable = request.POST['spendable']
 
-    user = Member.objects.get(username=sign_in_name)
-    user.username = username
+    user = Member.objects.get(username=username)
+    user.username = memberName
     user.email = email
     user.password = password
     user.availability = availability
     user.spendable = spendable
     user.save()
-
-    context = {}
 
     return redirect(reverse('update_success_view'))
 
