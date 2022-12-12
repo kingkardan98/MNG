@@ -34,9 +34,9 @@ urlpatterns = [
     path('user/<int:id>/delete', delete_user_view, name='delete_user_view'),     # user.views
     path('user/<int:id>/update', update_user_view, name='update_user_view'),     # user.views
     path('user/<int:id>/updateuser', updateuser, name='updateuser'),             # user.views
-    path('success/', create_success_view, name='create_success_view'),           # user.views
-    path('updated/', update_success_view, name='update_success_view'),           # user.views
-    path('deleted/', delete_success_view, name='delete_success_view'),           # user.views
+    path('creation_success/', create_success_view, name='create_success_view'),           # user.views
+    path('update_success/', update_success_view, name='update_success_view'),           # user.views
+    path('delete_success/', delete_success_view, name='delete_success_view'),           # user.views
 
     path('login/', include('django.contrib.auth.urls')),
     path('login/', login_user, name='login_user'),
