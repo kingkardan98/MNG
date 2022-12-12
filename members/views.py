@@ -5,7 +5,7 @@ from .forms import MemberForm, MemberUpdateForm
 
 # Create your views here.
 
-def user_create_view(request):
+def member_create_view(request):
     # The C in CRUD
     form = MemberForm()
     if request.method == "POST":
@@ -17,21 +17,21 @@ def user_create_view(request):
     context = {
             "form": form
         }
-    return render(request, 'member/create_user.html', context)
+    return render(request, 'member/create_member.html', context)
 
 def create_success_view(request):
     return render(request, "member/create_success.html", {})
 
-def user_detail_view(request, id):
+def member_detail_view(request, id):
     # The R in CRUD
     obj = get_object_or_404(Member, id=id)
     context = {
         "obj": obj
     }
 
-    return render(request, "member/detail_user.html", context)
+    return render(request, "member/detail_member.html", context)
 
-def update_user_view(request, id):
+def update_member_view(request, id):
     # The U in CRUD
     obj = get_object_or_404(Member, id=id)
     data = {
@@ -48,9 +48,9 @@ def update_user_view(request, id):
         "form": form
     }
 
-    return render(request, "member/update_user.html", context)
+    return render(request, "member/update_member.html", context)
 
-def updateuser(request, id):
+def updatemember(request, id):
     username = request.POST['username']
     email = request.POST['email']
     password = request.POST['password']
@@ -67,13 +67,13 @@ def updateuser(request, id):
 
     context = {}
 
-    return redirect(reverse('update_success_view', kwargs={'id': user.id}))
+    return redirect(reverse('update_success_view'))
 
 def update_success_view(request):
     return render(request, 'member/update_success.html', {})
 
 
-def delete_user_view(request, id):
+def delete_member_view(request, id):
     # The D in CRUD
     obj = get_object_or_404(Member, id=id)
     if request.method == "POST":
@@ -83,7 +83,7 @@ def delete_user_view(request, id):
         "obj": obj
     }
 
-    return render(request, "member/delete_user.html", context)
+    return render(request, "member/delete_member.html", context)
 
 def delete_success_view(request):
     return render(request, 'member/delete_success.html', {})

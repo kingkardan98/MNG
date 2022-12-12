@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
-from members.views import user_detail_view
+from members.views import member_detail_view
 from members.models import Member
 
 # Create your views here.

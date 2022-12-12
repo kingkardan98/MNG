@@ -29,14 +29,14 @@ urlpatterns = [
     path('contacts/', contacts_view, name='contacts'),                           # pages.views
     path('about/', about_view, name='about_view'),                               # pages.views
 
-    path('create_user', user_create_view, name='user_create_view'),              # user.views
-    path('user/<int:id>', user_detail_view, name='user_detail_view'),            # user.views
-    path('user/<int:id>/delete', delete_user_view, name='delete_user_view'),     # user.views
-    path('user/<int:id>/update', update_user_view, name='update_user_view'),     # user.views
-    path('user/<int:id>/updateuser', updateuser, name='updateuser'),             # user.views
-    path('creation_success/', create_success_view, name='create_success_view'),           # user.views
-    path('update_success/', update_success_view, name='update_success_view'),           # user.views
-    path('delete_success/', delete_success_view, name='delete_success_view'),           # user.views
+    path('create_user', member_create_view, name='member_create_view'),              # user.views
+    path('user/<int:id>', member_detail_view, name='member_detail_view'),            # user.views
+    path('user/<int:id>/delete', delete_member_view, name='delete_member_view'),     # user.views
+    path('user/<int:id>/update', update_member_view, name='update_member_view'),     # user.views
+    path('user/<int:id>/updateuser', updatemember, name='updatemember'),             # user.views
+    path('creation_success/', create_success_view, name='create_success_view'),  # user.views
+    path('update_success/', update_success_view, name='update_success_view'),    # user.views
+    path('delete_success/', delete_success_view, name='delete_success_view'),    # user.views
 
     path('login/', include('django.contrib.auth.urls')),
     path('login/', login_user, name='login_user'),
