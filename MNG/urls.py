@@ -14,10 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from pages.views import *
 from user.views import *
+from userAuth.views import *
 
 # View parent script is commented near its path,
 # so when shit hits the fan I know where to go looking.
@@ -27,6 +28,7 @@ urlpatterns = [
     path('', home_view, name='home'),                                            # pages.views
     path('contacts/', contacts_view, name='contacts'),                           # pages.views
     path('about/', about_view, name='about_view'),                               # pages.views
+
     path('create_user', user_create_view, name='user_create_view'),              # user.views
     path('user/<int:id>', user_detail_view, name='user_detail_view'),            # user.views
     path('user/<int:id>/delete', delete_user_view, name='delete_user_view'),     # user.views
@@ -35,4 +37,7 @@ urlpatterns = [
     path('success/', create_success_view, name='create_success_view'),           # user.views
     path('updated/', update_success_view, name='update_success_view'),           # user.views
     path('deleted/', delete_success_view, name='delete_success_view'),           # user.views
+
+    path('login/', include('django.contrib.auth.urls')),
+    path('login/', login_user, name='login_user'),
 ]
