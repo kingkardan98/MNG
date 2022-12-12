@@ -6,7 +6,12 @@ from .forms import MemberForm
 # Create your views here.
 
 def member_create_view(request):
-    # The C in CRUD - FULLY DONE
+    # The C in CRUD - FULLY WORKS
+    # Will need to implement the capability to access it only
+    # while logged in into the specific user. No other users
+    # should be accessible. With this view the User in the
+    # admin site should be created too.
+
     form = MemberForm()
     if request.method == "POST":
         form = MemberForm(data=request.POST)
@@ -23,7 +28,11 @@ def create_success_view(request):
     return render(request, "member/create_success.html", {})
 
 def member_detail_view(request, username):
-    # The R in CRUD - FULLY DONE
+    # The R in CRUD - FULLY WORKS
+    # Will need to implement the capability to access it only
+    # while logged in into the specific user. No other users
+    # should be accessible.
+
     obj = get_object_or_404(Member, username=username)
     context = {
         "obj": obj
@@ -32,7 +41,12 @@ def member_detail_view(request, username):
     return render(request, "member/detail_member.html", context)
 
 def update_member_view(request, username):
-    # The U in CRUD - WORK IN PROGRESS
+    # The U in CRUD - FULLY WORKS
+    # Will need to implement the capability to access it only
+    # while logged in into the specific user. No other users
+    # should be accessible. With this view the User in the
+    # admin site should be updated too.
+
     obj = get_object_or_404(Member, username=username)
     form = MemberForm(instance=obj)
 
@@ -49,29 +63,17 @@ def update_member_view(request, username):
 
     return render(request, "member/update_member.html", context)
 
-def updatemember(request, username):
-    memberName = request.POST['username']
-    email = request.POST['email']
-    password = request.POST['password']
-    availability = request.POST['availability']
-    spendable = request.POST['spendable']
-
-    user = Member.objects.get(username=username)
-    user.username = memberName
-    user.email = email
-    user.password = password
-    user.availability = availability
-    user.spendable = spendable
-    user.save()
-
-    return redirect(reverse('update_success_view'))
-
 def update_success_view(request):
     return render(request, 'member/update_success.html', {})
 
 
 def delete_member_view(request, username):
-    # The D in CRUD - FULLY DONE
+    # The D in CRUD - FULLY WORKS
+    # Will need to implement the capability to access it only
+    # while logged in into the specific user. No other users
+    # should be accessible. With this view the User in the
+    # admin site should be deleted too.
+    
     obj = get_object_or_404(Member, username=username)
     if request.method == "POST":
         obj.delete()
