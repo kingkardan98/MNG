@@ -1,0 +1,5 @@
+<ul>
+    <li> <a href={% url 'update_member_view' username=obj.username %}>Update user</a> </li>
+    <li> <a href={% url 'delete_member_view' username=obj.username %}>Delete user</a> </li>
+    <li> <a href={% url 'member_detail_view' username=obj.username %}>User page </a></li>
+</ul>

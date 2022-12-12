@@ -8,10 +8,7 @@ MNNG - User info
 
 {% include 'html/navbar.html' %}
 
-<ul>
-    <li> <a href={% url 'update_member_view' id=obj.id %}>Update user</a> </li>
-    <li> <a href={% url 'delete_member_view' id=obj.id %}>Delete user</a> </li>
-</ul>
+{% include 'html/user_ops.html' %}
 
 <h1>User info</h1>
 

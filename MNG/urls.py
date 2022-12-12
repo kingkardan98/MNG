@@ -30,10 +30,10 @@ urlpatterns = [
     path('about/', about_view, name='about_view'),                               # pages.views
 
     path('create_user', member_create_view, name='member_create_view'),              # user.views
-    path('user/<int:id>', member_detail_view, name='member_detail_view'),            # user.views
-    path('user/<int:id>/delete', delete_member_view, name='delete_member_view'),     # user.views
-    path('user/<int:id>/update', update_member_view, name='update_member_view'),     # user.views
-    path('user/<int:id>/updateuser', updatemember, name='updatemember'),             # user.views
+    path('user/<str:username>', member_detail_view, name='member_detail_view'),            # user.views
+    path('user/<str:username>/delete', delete_member_view, name='delete_member_view'),     # user.views
+    path('user/<str:username>/update', update_member_view, name='update_member_view'),     # user.views
+    path('user/<str:username>/updateuser', updatemember, name='updatemember'),             # user.views
     path('creation_success/', create_success_view, name='create_success_view'),  # user.views
     path('update_success/', update_success_view, name='update_success_view'),    # user.views
     path('delete_success/', delete_success_view, name='delete_success_view'),    # user.views

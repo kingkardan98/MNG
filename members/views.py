@@ -22,18 +22,18 @@ def member_create_view(request):
 def create_success_view(request):
     return render(request, "member/create_success.html", {})
 
-def member_detail_view(request, id):
+def member_detail_view(request, username):
     # The R in CRUD
-    obj = get_object_or_404(Member, id=id)
+    obj = get_object_or_404(Member, username=username)
     context = {
         "obj": obj
     }
 
     return render(request, "member/detail_member.html", context)
 
-def update_member_view(request, id):
+def update_member_view(request, username):
     # The U in CRUD
-    obj = get_object_or_404(Member, id=id)
+    obj = get_object_or_404(Member, username=username)
     data = {
         'availability': obj.availability,
         'spendable': obj.spendable,
@@ -50,14 +50,14 @@ def update_member_view(request, id):
 
     return render(request, "member/update_member.html", context)
 
-def updatemember(request, id):
+def updatemember(request, sign_in_name):
     username = request.POST['username']
     email = request.POST['email']
     password = request.POST['password']
     availability = request.POST['availability']
     spendable = request.POST['spendable']
 
-    user = Member.objects.get(id=id)
+    user = Member.objects.get(username=sign_in_name)
     user.username = username
     user.email = email
     user.password = password
@@ -73,9 +73,9 @@ def update_success_view(request):
     return render(request, 'member/update_success.html', {})
 
 
-def delete_member_view(request, id):
+def delete_member_view(request, username):
     # The D in CRUD
-    obj = get_object_or_404(Member, id=id)
+    obj = get_object_or_404(Member, username=username)
     if request.method == "POST":
         obj.delete()
         return redirect(reverse('delete_success_view'))
