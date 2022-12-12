@@ -50,7 +50,7 @@ def update_user_view(request, id):
 
     return render(request, "member/update_user.html", context)
 
-def updateuser(request, id, obj):
+def updateuser(request, id):
     username = request.POST['username']
     email = request.POST['email']
     password = request.POST['password']
@@ -65,7 +65,9 @@ def updateuser(request, id, obj):
     user.spendable = spendable
     user.save()
 
-    return redirect(reverse('update_success_view'))
+    context = {}
+
+    return redirect(reverse('update_success_view', kwargs={'id': user.id}))
 
 def update_success_view(request):
     return render(request, 'member/update_success.html', {})
