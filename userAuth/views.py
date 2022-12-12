@@ -3,8 +3,8 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
-from user.views import user_detail_view
-from user.models import User
+from members.views import user_detail_view
+from members.models import Member
 
 # Create your views here.
 
@@ -16,7 +16,7 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            obj = get_object_or_404(User, username=username)
+            obj = get_object_or_404(Member, username=username)
             print(obj.id)
             return redirect(reverse('user_detail_view'), args=[obj.id])
 

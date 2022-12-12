@@ -1,0 +1,15 @@
+{% extends 'html/base.html' %}
+
+{% block html_title %}
+MNNG - Delete user
+{% endblock %}
+
+{% block body_content %}
+<form method="POST"> {% csrf_token %}
+    <h1>Do you want to delete the user {{ obj.username }}?</h1>
+    <p>
+        <input type="submit" value="Yes"/> 
+        <a href="/user/{{ obj.id }}">Cancel</a>
+    </p>
+</form>
+{% endblock %}

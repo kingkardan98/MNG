@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from pages.views import *
-from user.views import *
+from members.views import *
 from userAuth.views import *
 
 # View parent script is commented near its path,
