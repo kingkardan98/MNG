@@ -6,7 +6,7 @@ from .forms import MemberForm
 # Create your views here.
 
 def member_create_view(request):
-    # The C in CRUD
+    # The C in CRUD - FULLY DONE
     form = MemberForm()
     if request.method == "POST":
         form = MemberForm(data=request.POST)
@@ -23,7 +23,7 @@ def create_success_view(request):
     return render(request, "member/create_success.html", {})
 
 def member_detail_view(request, username):
-    # The R in CRUD
+    # The R in CRUD - FULLY DONE
     obj = get_object_or_404(Member, username=username)
     context = {
         "obj": obj
@@ -32,19 +32,15 @@ def member_detail_view(request, username):
     return render(request, "member/detail_member.html", context)
 
 def update_member_view(request, username):
-    # The U in CRUD
+    # The U in CRUD - WORK IN PROGRESS
     obj = get_object_or_404(Member, username=username)
+    form = MemberForm(instance=obj)
 
     if request.method == "POST":
-        form = Member.objects.filter()
+        form = MemberForm(request.POST, instance=obj)
         if form.is_valid():
             form.save()
-            return redirect(reverse('updatemember', kwargs={'username': username}))
-        else:
-            print("Invalid form.")
-
-    else:
-        form = MemberForm(instance=obj)
+            return redirect(reverse('update_success_view'))
 
     context = {
         "obj": obj,
@@ -75,7 +71,7 @@ def update_success_view(request):
 
 
 def delete_member_view(request, username):
-    # The D in CRUD
+    # The D in CRUD - FULLY DONE
     obj = get_object_or_404(Member, username=username)
     if request.method == "POST":
         obj.delete()

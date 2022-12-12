@@ -58,7 +58,7 @@ class MemberForm(forms.ModelForm):
                                        label='', 
                                        widget=forms.PasswordInput(
         attrs={
-            'label': 'confirm_password',
+            'label': 'Confirm password',
             'placeholder': 'Confirm password'
             }
         )

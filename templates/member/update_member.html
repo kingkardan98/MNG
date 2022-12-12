@@ -1,4 +1,5 @@
 {% extends 'html/base.html' %}
+{% load myFilters%}
 
 {% block html_title %}
 MNNG - Update user
@@ -25,26 +26,20 @@ MNNG - Update user
     <h3>(You may change your password in this step, or just type it in again.)</h3>
 </p>
 
-<form action='updatemember' method="POST">{% csrf_token %}
-    <p>
-        <h6> Availability: {{ form.availability }} </h6>
-    </p>
-    <p>
-        <h6> Spending limit: {{ form.spendable }} </h6>
-    </p>
-    <p>
-        <h6> Username: {{ form.username }} </h6>
-    </p>
-    <p>
-        <h6> Email: {{form.email }} </h6>
-    </p>
-    <p>
-        <h6> Password: {{ form.password }} </h6>
-    </p>
-    <p>
-        <h6> Confirm password: {{ form.confirm_password }} </h6>
-    </p>
+<form method="POST">{% csrf_token %}
+    {% for field in form %}
+    <p> {{ field.errors }} </p>
+    <p> {{ field.name|capfirst|intoSpace:'_' }} - {{ field }} </p>
+    {% endfor %}
     <input type="submit" value="Update user" />
 </form>
+
+{% if form.subject.errors %}
+    <ol>
+    {% for error in form.subject.errors %}
+        <li><strong>{{ error|escape }}</strong></li>
+    {% endfor %}
+    </ol>
+{% endif %}
 
 {% endblock %}

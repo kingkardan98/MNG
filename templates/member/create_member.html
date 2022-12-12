@@ -1,4 +1,5 @@
 {% extends 'html/base.html' %}
+{% load myFilters%}
 
 {% block html_title %}
 MNNG - Create user
@@ -11,8 +12,19 @@ MNNG - Create user
 <h1>Create user</h1>
 
 <form method="POST">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Create user" />
+    {% for field in form %}
+    <p> {{ field.errors }} </p>
+    <p> {{ field.name|capfirst|intoSpace:'_' }} - {{ field }} </p>
+    {% endfor %}
+    <input type="submit" value="Update user" />
 </form>
+
+{% if form.subject.errors %}
+    <ol>
+    {% for error in form.subject.errors %}
+        <li><strong>{{ error|escape }}</strong></li>
+    {% endfor %}
+    </ol>
+{% endif %}
 
 {% endblock %}
