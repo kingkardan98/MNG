@@ -57,7 +57,7 @@ class MemberForm(forms.ModelForm):
         fields = [
             'availability',
             'spendable',
-            'username',
+            'name',
             'email'
         ]
 
