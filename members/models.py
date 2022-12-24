@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Member(models.Model):
-    username = models.CharField(max_length=256, validators=[MinLengthValidator(8)])
+    name = models.CharField(max_length=256, validators=[MinLengthValidator(8)])
     email = models.EmailField(max_length=256)
     password = models.CharField(max_length=512, validators=[MinLengthValidator(8)])
 

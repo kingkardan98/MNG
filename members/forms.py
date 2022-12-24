@@ -24,12 +24,12 @@ class MemberForm(forms.ModelForm):
         )
     )
 
-    username = forms.CharField(required=True, 
+    name = forms.CharField(required=True, 
                                label='', 
                                widget=forms.TextInput(
         attrs={
-            'label': 'username',
-            'placeholder': 'Username'
+            'label': 'name',
+            'placeholder': 'Name'
             }
         )
     )
