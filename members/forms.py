@@ -44,26 +44,6 @@ class MemberForm(forms.ModelForm):
         )
     )
 
-    password = forms.CharField(required=True, 
-                               label='', 
-                               widget=forms.PasswordInput(
-        attrs={
-            'label': 'password',
-            'placeholder': 'Password'
-            }
-        )
-    )
-
-    confirm_password = forms.CharField(required=True, 
-                                       label='', 
-                                       widget=forms.PasswordInput(
-        attrs={
-            'label': 'Confirm password',
-            'placeholder': 'Confirm password'
-            }
-        )
-    )
-
     author = forms.CharField(label='',
                              disabled=True,
                              widget=forms.TextInput(
@@ -86,8 +66,6 @@ class MemberForm(forms.ModelForm):
         cleaned_data = super(MemberForm, self).clean()
 
         data_dict = {
-            'password': cleaned_data.get("password"),
-            'confirm_password': cleaned_data.get("confirm_password"),
             'spendable': cleaned_data.get("spendable"),
             'availability': cleaned_data.get("availability")
         }
