@@ -1,0 +1,25 @@
+{% extends 'html/base.html' %}
+
+{% block html_title %}
+MNNG - User creation
+{% endblock %}
+
+{% block body_content %}
+<h1>Sign up</h1>
+
+{% if messages %}
+<ul>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<form method="POST"> {% csrf_token %}
+    {{ form.as_p }}
+    <p>
+        <input type="submit" name="submit" value="Sign up" />
+    </p>
+</form>
+
+{% endblock %}

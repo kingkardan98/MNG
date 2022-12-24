@@ -7,7 +7,14 @@ MNNG - Login
 {% block body_content %}
 <h1>Login</h1>
 
-<form> {% csrf_token %}
+{% if messages %}
+<ul>
+{% for message in messages %}
+  <li> {{ message }}</li>
+{% endfor %}  
+</ul>
+{% endif %}
+<form method="POST"> {% csrf_token %}
     <div class="form-group">
       <label for="exampleInputEmail1">Username</label>
       <input type="text" 
@@ -25,5 +32,9 @@ MNNG - Login
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+
+{% if redirect %}
+  <a href="{% url 'member_list_view' logged_user=username %}">See members list</a>
+{% endif %}
 
 {% endblock %}
