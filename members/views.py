@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
-from .models import Member
+from .models import Member, User
 from .forms import MemberForm
 
 # Create your views here.
@@ -33,6 +33,17 @@ def member_create_view(request):
 
 def create_success_view(request):
     return render(request, "member/create_success.html", {})
+
+def member_list_view(request, logged_user):
+    if logged_user not in [obj.username for obj in User.objects.all()]:
+        print("Username not found")
+        return None
+    memberList = list(Member.objects.filter(author = logged_user))
+    context = {
+        "memberList": memberList
+    }
+
+    return render(request, 'member/member_list.html', context)
 
 def member_detail_view(request, username):
     # The R in CRUD - FULLY WORKS
