@@ -58,8 +58,7 @@ class MemberForm(forms.ModelForm):
             'availability',
             'spendable',
             'username',
-            'email',
-            'password'
+            'email'
         ]
 
     def clean(self):
