@@ -11,8 +11,15 @@ def member_create_view(request):
     # while logged in into the specific user. No other users
     # should be accessible. With this view the User in the
     # admin site should be created too.
+    # If not logged in, redirect to the login page.
 
-    form = MemberForm()
+    logged_user = request.user
+
+    if logged_user == 'Anonymous':
+        pass
+
+    form = MemberForm(initial={'author': logged_user})
+
     if request.method == "POST":
         form = MemberForm(data=request.POST)
         if form.is_valid():

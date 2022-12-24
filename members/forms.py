@@ -64,6 +64,14 @@ class MemberForm(forms.ModelForm):
         )
     )
 
+    author = forms.CharField(label='',
+                             disabled=True,
+                             widget=forms.TextInput(
+        attrs={
+            'label': 'Author'
+        }
+                             ))
+
     class Meta:
         model = Member
         fields = [
