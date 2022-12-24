@@ -1,29 +1,50 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
-from members.views import member_detail_view
-from members.models import Member
+from django.contrib.auth.forms import UserCreationForm  
 
 # Create your views here.
 
 def login_user(request):
+    request.session['logged_user'] = ''
     context = {}
+
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            obj = get_object_or_404(Member, username=username)
-            print(obj.id)
-            return redirect(reverse('member_detail_view'), args=[obj.id])
+            request.session['logged_user'] = username
+            return redirect('member_list_view', logged_user=username)
 
         else:
-            # Return an 'invalid login' error message.
-            print("Error")
-            pass
+            messages.success(request, ("There was an error logging in."))
+            return render(request, 'userAuth/login.html', context)
             
     else:
         return render(request, 'userAuth/login.html', context)
+
+def logout_user(request):
+    context = {
+        "username": request.user.username
+    }
+    logout(request)
+    return render(request, 'userAuth/logout.html', context)
+
+def create_user_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm()
+        if form.is_valid():
+            form.save()
+        messages.success(request, "User created succesfully!")
+        return redirect('member_list_view', logged_user=form.username)
+        
+    else:
+        form = UserCreationForm()
+        context = {
+            'form': form
+        }
+
+    return render(request, 'userAuth/create_user.html', context)
