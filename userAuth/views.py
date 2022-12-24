@@ -18,7 +18,7 @@ def login_user(request):
             login(request, user)
             obj = get_object_or_404(Member, username=username)
             print(obj.id)
-            return redirect(reverse('user_detail_view'), args=[obj.id])
+            return redirect(reverse('member_detail_view'), args=[obj.id])
 
         else:
             # Return an 'invalid login' error message.
