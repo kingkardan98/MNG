@@ -25,18 +25,21 @@ from userAuth.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_view, name='home'),                                                      # pages.views
-    path('contacts/', contacts_view, name='contacts'),                                     # pages.views
-    path('about/', about_view, name='about_view'),                                         # pages.views
+    path('', home_view, name='home'),                                                           # pages.views
+    path('contacts/', contacts_view, name='contacts'),                                          # pages.views
+    path('about/', about_view, name='about_view'),                                              # pages.views
 
-    path('create_user', member_create_view, name='member_create_view'),                    # user.views
-    path('user/<str:username>', member_detail_view, name='member_detail_view'),            # user.views
-    path('user/<str:username>/delete', delete_member_view, name='delete_member_view'),     # user.views
-    path('user/<str:username>/update', update_member_view, name='update_member_view'),     # user.views
-    path('creation_success/', create_success_view, name='create_success_view'),            # user.views
-    path('update_success/', update_success_view, name='update_success_view'),              # user.views
-    path('delete_success/', delete_success_view, name='delete_success_view'),              # user.views
+    path('create_member', member_create_view, name='member_create_view'),                       # member.views
+    path('<str:logged_user>/member_list', member_list_view, name="member_list_view"),           # member.views
+    path('user/<str:username>', member_detail_view, name='member_detail_view'),                 # member.views
+    path('user/<str:username>/delete', delete_member_view, name='delete_member_view'),          # member.views
+    path('user/<str:username>/update', update_member_view, name='update_member_view'),          # member.views
+    path('creation_success/', create_success_view, name='create_success_view'),                 # member.views
+    path('update_success/', update_success_view, name='update_success_view'),                   # member.views
+    path('delete_success/', delete_success_view, name='delete_success_view'),                   # member.views
 
-    path('login/', include('django.contrib.auth.urls')),
-    path('login/', login_user, name='login_user'),
+    path('login/', include('django.contrib.auth.urls')),                                        # userAuth.views
+    path('login/', login_user, name='login_user'),                                              # userAuth.views
+    path('logout/', logout_user, name='logout_user'),                                           # userAuth.views
+    path('create_user', create_user_view, name = 'create_user_view')                            # userAuth.views
 ]
