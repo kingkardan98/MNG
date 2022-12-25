@@ -7,11 +7,6 @@ from .forms import MemberForm
 
 def member_create_view(request):
     # The C in CRUD - FULLY WORKS
-    # Will need to implement the capability to access it only
-    # while logged in into the specific user. No other users
-    # should be accessible. With this view the User in the
-    # admin site should be created too.
-    # If not logged in, redirect to the login page.
 
     logged_user = request.user
 
@@ -21,10 +16,11 @@ def member_create_view(request):
     form = MemberForm(initial={'author': logged_user})
 
     if request.method == "POST":
-        form = MemberForm(data=request.POST)
+        form = MemberForm(data=request.POST, initial={'author': logged_user})
         if form.is_valid():
-            form.save()
-            form = MemberForm()
+            obj = form.save(commit=False)
+            obj.author = logged_user
+            obj.save()
             return redirect(reverse('create_success_view'))
     context = {
             "form": form
@@ -35,41 +31,33 @@ def create_success_view(request):
     return render(request, "member/create_success.html", {})
 
 def member_list_view(request, logged_user):
-    if logged_user not in [obj.username for obj in User.objects.all()]:
-        print("Username not found")
-        return None
     memberList = list(Member.objects.filter(author = logged_user))
     context = {
-        "memberList": memberList
+        "memberList": memberList,
+        "logged_user": logged_user
     }
 
     return render(request, 'member/member_list.html', context)
 
-def member_detail_view(request, username):
+def member_detail_view(request, name):
     # The R in CRUD - FULLY WORKS
-    # Will need to implement the capability to access it only
-    # while logged in into the specific user. No other users
-    # should be accessible.
 
-    obj = get_object_or_404(Member, username=username)
+    obj = get_object_or_404(Member, name=name)
     context = {
         "obj": obj
     }
 
     return render(request, "member/detail_member.html", context)
 
-def update_member_view(request, username):
+def update_member_view(request, name):
     # The U in CRUD - FULLY WORKS
-    # Will need to implement the capability to access it only
-    # while logged in into the specific user. No other users
-    # should be accessible. With this view the User in the
-    # admin site should be updated too.
 
-    obj = get_object_or_404(Member, username=username)
-    form = MemberForm(instance=obj)
+    logged_user = request.user
+    obj = get_object_or_404(Member, name=name)
+    form = MemberForm(instance=obj, initial={'author': logged_user})
 
     if request.method == "POST":
-        form = MemberForm(request.POST, instance=obj)
+        form = MemberForm(request.POST, instance=obj, initial={'author': logged_user})
         if form.is_valid():
             form.save()
             return redirect(reverse('update_success_view'))
@@ -85,14 +73,10 @@ def update_success_view(request):
     return render(request, 'member/update_success.html', {})
 
 
-def delete_member_view(request, username):
+def delete_member_view(request, name):
     # The D in CRUD - FULLY WORKS
-    # Will need to implement the capability to access it only
-    # while logged in into the specific user. No other users
-    # should be accessible. With this view the User in the
-    # admin site should be deleted too.
     
-    obj = get_object_or_404(Member, username=username)
+    obj = get_object_or_404(Member, name=name)
     if request.method == "POST":
         obj.delete()
         return redirect(reverse('delete_success_view'))
