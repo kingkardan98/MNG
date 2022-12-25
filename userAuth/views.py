@@ -34,12 +34,22 @@ def logout_user(request):
     return render(request, 'userAuth/logout.html', context)
 
 def create_user_view(request):
+    form = UserCreationForm()
+    context = {
+        'form': form
+    }
     if request.method == 'POST':
-        form = UserCreationForm()
+        form = UserCreationForm(data=request.POST)
         if form.is_valid():
             form.save()
-        messages.success(request, "User created succesfully!")
-        return redirect('member_list_view', logged_user=form.username)
+            messages.success(request, "User created succesfully!")
+
+            username = request.POST['username']
+            password = request.POST['password1']
+            user = authenticate(request, username=username, password=password)
+            login(request, user)
+
+            return redirect('member_list_view', logged_user=request.user)
         
     else:
         form = UserCreationForm()
