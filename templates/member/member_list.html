@@ -15,7 +15,7 @@ MNNG - User list
 <ul>
 {% for obj in memberList%}
     <li>
-        <a href={% url 'member_detail_view' username=obj.username %}>{{ obj.username }}</a>
+        <a href={% url 'member_detail_view' name=obj.name %}>{{ obj.name }}</a>
     </li>
 {% endfor %}
 </ul>
