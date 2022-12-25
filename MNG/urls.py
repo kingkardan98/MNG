@@ -31,9 +31,9 @@ urlpatterns = [
 
     path('create_member', member_create_view, name='member_create_view'),                       # member.views
     path('<str:logged_user>/member_list', member_list_view, name="member_list_view"),           # member.views
-    path('user/<str:username>', member_detail_view, name='member_detail_view'),                 # member.views
-    path('user/<str:username>/delete', delete_member_view, name='delete_member_view'),          # member.views
-    path('user/<str:username>/update', update_member_view, name='update_member_view'),          # member.views
+    path('user/<str:name>', member_detail_view, name='member_detail_view'),                     # member.views
+    path('user/<str:name>/delete', delete_member_view, name='delete_member_view'),              # member.views
+    path('user/<str:name>/update', update_member_view, name='update_member_view'),              # member.views
     path('creation_success/', create_success_view, name='create_success_view'),                 # member.views
     path('update_success/', update_success_view, name='update_success_view'),                   # member.views
     path('delete_success/', delete_success_view, name='delete_success_view'),                   # member.views
