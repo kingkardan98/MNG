@@ -1,11 +1,9 @@
 from django.db import models
-from django.core.validators import MinLengthValidator
 from django.urls import reverse
-from django.contrib.auth.models import User
 
 # Create your models here.
 class Member(models.Model):
-    name = models.CharField(max_length=256, validators=[MinLengthValidator(8)])
+    name = models.CharField(max_length=256)
     email = models.EmailField(max_length=256)
 
     availability = models.DecimalField(max_digits=10000, decimal_places=2)
