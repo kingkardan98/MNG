@@ -1,5 +1,3 @@
-import string
-
 def spendableCheck(data):
     spendable = data['spendable']
     availability = data['availability']
