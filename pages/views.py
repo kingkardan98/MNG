@@ -20,3 +20,6 @@ def about_view(request):
     }
 
     return render(request, "html/about_view.html", context)
+
+def refused(request):
+    return render(request, 'html/refused.html', {})
