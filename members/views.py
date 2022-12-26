@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
-from .models import Member, User
+from .models import Member
 from .forms import MemberForm
 
 # Create your views here.
@@ -9,9 +9,6 @@ def member_create_view(request):
     # The C in CRUD - FULLY WORKS
 
     logged_user = request.user
-
-    if logged_user == 'Anonymous':
-        pass
 
     form = MemberForm(initial={'author': logged_user})
 
@@ -32,6 +29,12 @@ def create_success_view(request):
 
 def member_list_view(request, logged_user):
     memberList = list(Member.objects.filter(author = logged_user))
+    obj = Member.objects.filter(author = logged_user).first()
+
+    if str(request.user) != obj.author:
+        return redirect(reverse('refused'))
+        
+
     context = {
         "memberList": memberList,
         "logged_user": logged_user
@@ -43,6 +46,10 @@ def member_detail_view(request, name):
     # The R in CRUD - FULLY WORKS
 
     obj = get_object_or_404(Member, name=name)
+
+    if str(request.user) != obj.author:
+        return redirect(reverse('refused'))
+
     context = {
         "obj": obj
     }
@@ -54,6 +61,10 @@ def update_member_view(request, name):
 
     logged_user = request.user
     obj = get_object_or_404(Member, name=name)
+
+    if logged_user != obj.author:
+        return redirect(reverse('refused'))
+
     form = MemberForm(instance=obj, initial={'author': logged_user})
 
     if request.method == "POST":
@@ -77,6 +88,10 @@ def delete_member_view(request, name):
     # The D in CRUD - FULLY WORKS
     
     obj = get_object_or_404(Member, name=name)
+
+    if str(request.user) != obj.author:
+        return redirect(reverse('refused')) 
+
     if request.method == "POST":
         obj.delete()
         return redirect(reverse('delete_success_view'))
