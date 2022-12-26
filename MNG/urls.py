@@ -28,6 +28,7 @@ urlpatterns = [
     path('', home_view, name='home'),                                                           # pages.views
     path('contacts/', contacts_view, name='contacts'),                                          # pages.views
     path('about/', about_view, name='about_view'),                                              # pages.views
+    path('refused/', refused, name='refused'),                                                  # pages.views
 
     path('create_member', member_create_view, name='member_create_view'),                       # member.views
     path('<str:logged_user>/member_list', member_list_view, name="member_list_view"),           # member.views
