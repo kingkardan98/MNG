@@ -10,3 +10,15 @@ class Member(models.Model):
     spendable = models.DecimalField(max_digits=10000, decimal_places=2, db_column='spending')
 
     author = models.CharField(max_length=256, default='')
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+    
+    def unpack(self):
+        return {
+                'name': self.name, 
+                'email': self.email, 
+                'availability': self.availability, 
+                'spendable': self.spendable, 
+                'author': self.author
+                }

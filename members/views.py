@@ -3,9 +3,6 @@ from django.urls import reverse
 from .models import Member
 from .forms import MemberForm
 
-from edit.forms import EditForm
-from edit.models import Edit
-
 # Create your views here.
 
 def member_create_view(request):
