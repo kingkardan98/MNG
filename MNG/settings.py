@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'pages',
     'userAuth',
     'customFilters',
+    'edit',
 ]
 
 MIDDLEWARE = [
