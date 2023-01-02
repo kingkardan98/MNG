@@ -68,17 +68,17 @@ def update_member_view(request, name):
     if str(logged_user) != str(obj.author):
         return redirect(reverse('refused'))
 
-    form = MemberForm(instance=obj, initial={'author': logged_user})
+    member_form = MemberForm(instance=obj, initial={'author': logged_user})
 
     if request.method == "POST":
-        form = MemberForm(request.POST, instance=obj, initial={'author': logged_user})
-        if form.is_valid():
-            form.save()
+        member_form = MemberForm(request.POST, instance=obj, initial={'author': logged_user})
+        if member_form.is_valid():
+            member_form.save()
             return redirect(reverse('update_success_view'))
 
     context = {
         "obj": obj,
-        "form": form
+        "member_form": member_form
     }
 
     return render(request, "member/update_member.html", context)
