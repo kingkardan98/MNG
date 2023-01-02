@@ -3,6 +3,9 @@ from django.urls import reverse
 from .models import Member
 from .forms import MemberForm
 
+from edit.forms import EditForm
+from edit.models import Edit
+
 # Create your views here.
 
 def member_create_view(request):
@@ -62,7 +65,7 @@ def update_member_view(request, name):
     logged_user = request.user
     obj = get_object_or_404(Member, name=name)
 
-    if logged_user != obj.author:
+    if str(logged_user) != str(obj.author):
         return redirect(reverse('refused'))
 
     form = MemberForm(instance=obj, initial={'author': logged_user})
