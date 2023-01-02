@@ -10,6 +10,3 @@ class Member(models.Model):
     spendable = models.DecimalField(max_digits=10000, decimal_places=2, db_column='spending')
 
     author = models.CharField(max_length=256, default='')
-
-    def get_absolute_url(self):
-        return reverse("user_detail_view", kwargs={"id": self.id})
