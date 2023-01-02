@@ -27,16 +27,16 @@ MNNG - Update member
 </p>
 
 <form method="POST">{% csrf_token %}
-    {% for field in form %}
+    {% for field in member_form %}
     <p> {{ field.errors }} </p>
     <p> {{ field.name|capfirst|intoSpace:'_' }} - {{ field }} </p>
     {% endfor %}
     <input type="submit" value="Update user" />
 </form>
 
-{% if form.subject.errors %}
+{% if member_form.subject.errors %}
     <ol>
-    {% for error in form.subject.errors %}
+    {% for error in member_form.subject.errors %}
         <li><strong>{{ error|escape }}</strong></li>
     {% endfor %}
     </ol>
