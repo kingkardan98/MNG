@@ -1,8 +1,13 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 from django.contrib.auth.forms import UserCreationForm  
+from django.contrib.auth.models import User
+from members.models import Member
+
+from members.views import user_delete_cleaner_function
 
 # Create your views here.
 
@@ -58,3 +63,32 @@ def create_user_view(request):
         }
 
     return render(request, 'userAuth/create_user.html', context)
+
+def delete_user(request):
+    username = request.user
+    u = User.objects.get(username=username)
+    user_members = list(Member.objects.filter(author=username))
+
+    context = {
+        'username': username,
+        'err': None,
+        'user_members': user_members,
+    }
+
+    if len(user_members) != 0:
+        obj = user_members[0]
+        context['obj'] = obj
+
+    if str(request.user) != str(username):
+        return redirect(reverse('refused'))
+
+    else:
+        if request.method == 'POST':
+            user_delete_cleaner_function(user_members=user_members)
+            u.delete()
+
+            context = {'username': username}
+
+            return render(request, 'userAuth/delete_success.html', context)
+
+    return render(request, 'userAuth/delete_user.html', context)
