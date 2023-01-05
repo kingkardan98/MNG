@@ -1,0 +1,23 @@
+{% extends 'html/base.html' %}
+
+{% block html_title %}
+MNNG - Delete user
+{% endblock %}
+
+{% block body_content %}
+{% include 'html/navbar.html' %}
+
+<form method="POST"> {% csrf_token %}
+    <h1>Do you want to delete the user {{ username }}?</h1>
+    <h3>This will also delete all the following members:</h3>
+    <ul>
+    {% for member in user_members %}
+        <li> {{ member.name }} </li>
+    {% endfor %}
+    </ul>
+    <p>
+        <input type="submit" value="Yes"/> 
+        <a href='/'>Cancel</a>
+    </p>
+</form>
+{% endblock %}
