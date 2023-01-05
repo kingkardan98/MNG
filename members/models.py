@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 
+from simple_history.models import HistoricalRecords
+
 # Create your models here.
 class Member(models.Model):
     name = models.CharField(max_length=256)
@@ -10,6 +12,8 @@ class Member(models.Model):
     spendable = models.DecimalField(max_digits=10000, decimal_places=2, db_column='spending')
 
     author = models.CharField(max_length=256, default='')
+
+    history = HistoricalRecords()
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
