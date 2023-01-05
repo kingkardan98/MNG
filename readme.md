@@ -4,7 +4,7 @@ Manage is a simple Python project that showcases backend programming capabilitie
 
 It suimulates a money manager, in a simple but elegant way: a user can create multiple "members", which represent the different monetary accounts the user possesses.
 
-The backend code is fully written in Python, and managed through the Django framework.
+The backend code is fully written in Python, and the API is managed through the Django framework.
 
 Basic HTML is used to render the website, and CSS is still missing at this point.
 
