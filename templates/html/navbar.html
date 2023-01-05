@@ -8,6 +8,7 @@
         <li> <a href="{% url 'member_list_view' logged_user=user.username %}">See members list</a></li>
         <li> <a href="/create_member">Create member</a> </li>
         <li> <a href="/logout">Logout</a></li>
+        <li> <a href="/delete">Delete user</a></li>
         {% else %}
         <li> <a href="/login">Login</a> </li>
         {% endif %}
