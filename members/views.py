@@ -26,18 +26,18 @@ def member_create_view(request):
     return render(request, 'member/create_member.html', context)
 
 def create_success_view(request):
-    return render(request, "member/create_success.html", {})
+    return render(request, "member/create_success.html")
 
 def member_list_view(request, logged_user):
     memberList = list(Member.objects.filter(author = logged_user))
     obj = Member.objects.filter(author = logged_user).first()
 
+    if str(request.user) != logged_user:
+        return redirect(reverse('refused'))
+
     if obj == None:
         context = {}
         return render(request, 'member/member_list.html', context)
-
-    if str(request.user) != obj.author:
-        return redirect(reverse('refused'))
         
 
     context = {

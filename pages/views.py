@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -22,4 +23,4 @@ def about_view(request):
     return render(request, "html/about_view.html", context)
 
 def refused(request):
-    return render(request, 'html/refused.html', {})
+    return render(request, 'html/refused.html', {}, status=401)
