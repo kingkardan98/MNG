@@ -3,7 +3,6 @@ from django.urls import reverse
 from .models import Member
 from .forms import MemberForm
 from .admin import MemberHistoryAdmin
-from simple_history.admin import SimpleHistoryAdmin
 
 # Create your views here.
 
