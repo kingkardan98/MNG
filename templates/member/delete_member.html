@@ -10,7 +10,7 @@ MNNG - Delete member
 {% include 'html/member_ops.html' %}
 
 <form method="POST"> {% csrf_token %}
-    <h1>Do you want to delete the user {{ obj.name }}?</h1>
+    <h1>Do you want to delete the member {{ obj.name }}?</h1>
     <p>
         <input type="submit" value="Yes"/> 
         <a href={% url 'member_detail_view' name=obj.name %}>Cancel</a>
