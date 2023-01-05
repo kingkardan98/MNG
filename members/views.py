@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from .models import Member
 from .forms import MemberForm
+from .admin import MemberHistoryAdmin
+from simple_history.admin import SimpleHistoryAdmin
 
 # Create your views here.
 
@@ -31,6 +33,10 @@ def member_list_view(request, logged_user):
     memberList = list(Member.objects.filter(author = logged_user))
     obj = Member.objects.filter(author = logged_user).first()
 
+    if obj == None:
+        context = {}
+        return render(request, 'member/member_list.html', context)
+
     if str(request.user) != obj.author:
         return redirect(reverse('refused'))
         
@@ -55,6 +61,27 @@ def member_detail_view(request, name):
     }
 
     return render(request, "member/detail_member.html", context)
+
+def member_history_list_view(request, name):
+    obj = get_object_or_404(Member, name=name)
+
+    if str(request.user) != obj.author:
+        return redirect(reverse('refused'))
+
+    history = []
+    obj_history = obj.history.all()
+
+    for e in obj_history:
+        operation = MemberHistoryAdmin.list_changes(MemberHistoryAdmin, e)
+        if operation != None:
+            history.append(operation)
+
+    context = {
+        'obj': obj,
+        'history': history,
+    }
+
+    return render(request, 'member/member_history_list.html', context)
 
 def update_member_view(request, name):
     # The U in CRUD - FULLY WORKS
@@ -103,3 +130,7 @@ def delete_member_view(request, name):
 
 def delete_success_view(request):
     return render(request, 'member/delete_success.html', {})
+
+def user_delete_cleaner_function(user_members):
+    for obj in user_members:
+        obj.delete()
