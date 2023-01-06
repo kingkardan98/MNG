@@ -6,8 +6,10 @@ MNNG - Creazione utente
 
 {% block body_content %}
 
+{% include 'html/navbar_it.html' %}
+
 <ul>
-    <li><a href="en/create_user/">Change language</a></li>
+    <li><a href="{% url 'create_user_view' %}">Change language</a></li>
 </ul>
 
 <h1>Iscriviti</h1>
