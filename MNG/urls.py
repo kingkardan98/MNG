@@ -51,10 +51,10 @@ urlpatterns = [
     path('en/delete/', delete_user, name='delete_user'),                                                  # userAuth.views
 
     # All Italian URL Patterns
-    path('it', home_view_it, name='home'),                                                                   # pages.views
-    path('it/contacts/', contacts_view_it, name='contacts'),                                                 # pages.views
-    path('it/about/', about_view_it, name='about_view'),                                                     # pages.views
-    path('it/refused/', refused_it, name='refused'),                                                         # pages.views
+    path('it', home_view_it, name='home_view_it'),                                                               # pages.views
+    path('it/contacts/', contacts_view_it, name='contacts_it'),                                                 # pages.views
+    path('it/about/', about_view_it, name='about_view_it'),                                                     # pages.views
+    path('it/refused/', refused_it, name='refused_it'),                                                         # pages.views
 
     path('it/create_member/', member_create_view_it, name='member_create_view_it'),                             # member.views
     path('it/<str:logged_user>/member_list/', member_list_view_it, name="member_list_view_it"),                 # member.views
