@@ -1,0 +1,26 @@
+{% extends 'html/base.html' %}
+
+{% block html_title %}
+MNNG - Eliminazione utente
+{% endblock %}
+
+{% block body_content %}
+{% include 'html/navbar_it.html' %}
+<ul>
+    <li><a href="en/delete/">Change language</a></li>
+</ul>
+
+<form method="POST"> {% csrf_token %}
+    <h1>Si vuole cancellare l'utente {{ username }}?</h1>
+    <h3>Quest'operazione cancellerà anche tutti i seguenti membri:</h3>
+    <ul>
+    {% for member in user_members %}
+        <li> {{ member.name }} </li>
+    {% endfor %}
+    </ul>
+    <p>
+        <input type="submit" value="Conferma eliminazione"/> 
+        <a href='/it'>Annulla</a>
+    </p>
+</form>
+{% endblock %}

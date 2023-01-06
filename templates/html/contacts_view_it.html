@@ -1,0 +1,22 @@
+{% extends 'html/base.html'%}
+
+{% block html_title %}
+MNNG - Contatti
+{% endblock %}
+
+{% block body_content %}
+
+{% include 'html/navbar_it.html' %}
+
+<h1>Contatti</h1>
+
+<p>
+    {{ contacts_text }}
+    <ul>
+        {% for contact, number in contacts_dict.items %}
+        <li> {{ contact|capfirst }} : {{ number }}</li>
+        {% endfor %}
+    </ul>
+</p>
+
+{% endblock %}

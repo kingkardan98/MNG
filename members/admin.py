@@ -22,5 +22,8 @@ class MemberHistoryAdmin(SimpleHistoryAdmin):
             return fields
         return None
 
+    def get_datetime(self, obj):
+        return obj.history_date
+
 
 admin.site.register(Member, MemberHistoryAdmin)

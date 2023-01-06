@@ -24,3 +24,27 @@ def about_view(request):
 
 def refused(request):
     return render(request, 'html/refused.html', {}, status=401)
+
+# ----------------------------- ITALIAN -----------------------------
+
+def home_view_it(request):
+    return render(request, "html/home_view_it.html", {})
+
+def contacts_view_it(request):
+    context = {
+        "contacts_text": "Contatti",
+        "contacts_dict": {"mary": "123", "jackson": "000", "meeseeks": "4446064447777833777063377773333557777"} 
+    }
+    return render(request, "html/contacts_view.html_it", context)
+
+def about_view_it(request):
+    context = {
+        "about": "Questo sito internet è un piccolo progetto creato da me come presentazione per un'offerta di lavoro.",
+        "email": "mail@mailservice.com",
+        "phone": "123 4567890"
+    }
+
+    return render(request, "html/about_view_it.html", context)
+
+def refused_it(request):
+    return render(request, 'html/refused_it.html', {}, status=401)

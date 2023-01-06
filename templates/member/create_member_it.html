@@ -1,0 +1,38 @@
+{% extends 'html/base.html' %}
+{% load myFilters%}
+
+{% block html_title %}
+MNNG - Creazione membro
+{% endblock %}
+
+{% block body_content %}
+
+{% include 'html/navbar_it.html' %}
+<ul>
+<li><a href="/en/create_member">Change language</a></li>
+</ul>
+
+<h1>Creazione membro</h1>
+
+<form method="POST">{% csrf_token %}
+    <p>Disponibilità - {{ form.availability }}</p>
+    <p>{{ form.availability.errors }}</p>
+    <p>Limite di spesa - {{ form.spendable }}</p>
+    <p>{{ form.spendable.errors }}</p>
+    <p>Nome - {{ form.name }}</p>
+    <p>{{ form.name.errors }}</p>
+    <p>Email - {{ form.email }}</p>
+    <p>{{ form.email.errors }}</p>
+    <p>Utente - {{ form.author }}</p>
+    <input type="submit" value="Crea membro" />
+</form>
+
+{% if form.subject.errors %}
+    <ol>
+    {% for error in form.subject.errors %}
+        <li><strong>{{ error|escape }}</strong></li>
+    {% endfor %}
+    </ol>
+{% endif %}
+
+{% endblock %}

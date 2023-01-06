@@ -9,21 +9,21 @@ MNNG - Update member
 
 {% include 'html/navbar.html' %}
 
+<ul>
+    <li> <a href="{% url 'update_member_view_it' logged_user=user.username %}">Cambia lingua</a></li>
+</ul>
+
 {% include 'html/member_ops.html' %}
 
-<h1>Update user {{ obj.username }}</h1>
+<h1>Update user {{ old_obj.name }}</h1>
 <h2>Review your information:</h2>
-<p>Username: {{ obj.username }}</p>
-<p>Email: {{ obj.email }}</p>
-<p>Password: {{ obj.password }}</p>
-<p>Availability: ${{ obj.availability }}</p>
-<p>Spending limit: ${{ obj.spendable }}</p>
+<p>Username: {{ old_obj.name }}</p>
+<p>Email: {{ old_obj.email }}</p>
+<p>Availability: ${{ old_obj.availability }}</p>
+<p>Spending limit: ${{ old_obj.spendable }}</p>
 
 <p>
     <h2>Update your information</h2>
-</p>
-<p>
-    <h3>(You may change your password in this step, or just type it in again.)</h3>
 </p>
 
 <form method="POST">{% csrf_token %}

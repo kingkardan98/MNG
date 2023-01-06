@@ -1,0 +1,50 @@
+{% extends 'html/base.html' %}
+{% load myFilters%}
+
+{% block html_title %}
+MNNG - Aggiorna membro
+{% endblock %}
+
+{% block body_content %}
+
+{% include 'html/navbar_it.html' %}
+
+<ul>
+    <li> <a href="{% url 'update_member_view' logged_user=user.username %}">Change language</a></li>
+</ul>
+
+{% include 'html/member_ops_it.html' %}
+
+<h1>Aggiorna membro {{ old_obj.name }}</h1>
+<h2>Verifica le tue informazioni:</h2>
+<p>Username: {{ old_obj.name }}</p>
+<p>Email: {{ old_obj.email }}</p>
+<p>Disponibilità: ${{ old_obj.availability }}</p>
+<p>Limite di spesa: ${{ old_obj.spendable }}</p>
+
+<p>
+    <h2>Aggiorna le tue informazioni</h2>
+</p>
+
+<form method="POST">{% csrf_token %}
+    <p>Disponibilità - {{ member_form.availability }}</p>
+    <p>{{ member_form.availability.errors }}</p>
+    <p>Limite di spesa - {{ member_form.spendable }}</p>
+    <p>{{ member_form.spendable.errors }}</p>
+    <p>Nome - {{ member_form.name }}</p>
+    <p>{{ member_form.name.errors }}</p>
+    <p>Email - {{ member_form.email }}</p>
+    <p>{{ member_form.email.errors }}</p>
+    <p>Utente - {{ member_form.author }}</p>
+    <input type="submit" value="Aggiorna membro" />
+</form>
+
+{% if member_form.subject.errors %}
+    <ol>
+    {% for error in member_form.subject.errors %}
+        <li><strong>{{ error|escape }}</strong></li>
+    {% endfor %}
+    </ol>
+{% endif %}
+
+{% endblock %}

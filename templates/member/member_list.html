@@ -10,6 +10,10 @@ MNNG - Member list
 
 {% include 'html/navbar.html' %}
 
+<ul>
+    <li> <a href="{% url 'member_list_view_it' logged_user=user.username %}">Cambia lingua</a></li>
+</ul>
+
 <h2>Members list</h2>
 
 <ul>

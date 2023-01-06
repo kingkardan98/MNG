@@ -92,3 +92,67 @@ def delete_user(request):
             return render(request, 'userAuth/delete_success.html', context)
 
     return render(request, 'userAuth/delete_user.html', context)
+
+# ----------------------------- ITALIAN -----------------------------
+
+def logout_user_it(request):
+    context = {
+        "username": request.user.username
+    }
+    logout(request)
+    return render(request, 'userAuth/logout_it.html', context)
+
+def create_user_view_it(request):
+    form = UserCreationForm()
+    context = {
+        'form': form
+    }
+    if request.method == 'POST':
+        form = UserCreationForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Utente creato con successo!")
+
+            username = request.POST['username']
+            password = request.POST['password1']
+            user = authenticate(request, username=username, password=password)
+            login(request, user)
+
+            return redirect('member_list_view_it', logged_user=request.user)
+        
+    else:
+        form = UserCreationForm()
+        context = {
+            'form': form
+        }
+
+    return render(request, 'userAuth/create_user_it.html', context)
+
+def delete_user_it(request):
+    username = request.user
+    u = User.objects.get(username=username)
+    user_members = list(Member.objects.filter(author=username))
+
+    context = {
+        'username': username,
+        'err': None,
+        'user_members': user_members,
+    }
+
+    if len(user_members) != 0:
+        obj = user_members[0]
+        context['obj'] = obj
+
+    if str(request.user) != str(username):
+        return redirect(reverse('refused_it'))
+
+    else:
+        if request.method == 'POST':
+            user_delete_cleaner_function(user_members=user_members)
+            u.delete()
+
+            context = {'username': username}
+
+            return render(request, 'userAuth/delete_success_it.html', context)
+
+    return render(request, 'userAuth/delete_user_it.html', context)

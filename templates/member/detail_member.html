@@ -8,9 +8,13 @@ MNNG - Member info
 
 {% include 'html/navbar.html' %}
 
+<ul>
+    <li> <a href={% url 'member_detail_view_it' name=obj.name %}>Cambia lingua</a></li>
+</ul>
+
 {% include 'html/member_ops.html' %}
 
-<h1>User info</h1>
+<h1>Member info</h1>
 
 <p>Username: {{ obj.username }}</p>
 <p>Email: {{ obj.email }}</p>

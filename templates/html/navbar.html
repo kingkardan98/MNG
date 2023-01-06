@@ -1,17 +1,16 @@
 <nav>
     <ul>
-        <li> <a href="/contacts">Contacts</a> </li>
-        <li> <a href="/about">About</a> </li>
-        <li> <a href="/">Home page</a> </li> 
-        <li> <a href="/create_user">Sign up</a> </li>
+        <li> <a href="/en/contacts">Contacts</a> </li>
+        <li> <a href="/en/about">About</a> </li>
+        <li> <a href="/en">Home page</a> </li> 
+        <li> <a href="/en/create_user">Sign up</a> </li>
         {% if user.is_authenticated %}
         <li> <a href="{% url 'member_list_view' logged_user=user.username %}">See members list</a></li>
-        <li> <a href="/create_member">Create member</a> </li>
-        <li> <a href="/logout">Logout</a></li>
-        <li> <a href="/delete">Delete user</a></li>
+        <li> <a href="/en/create_member">Create member</a> </li>
+        <li> <a href="/en/logout">Logout</a></li>
+        <li> <a href="/en/delete">Delete user</a></li>
         {% else %}
-        <li> <a href="/login">Login</a> </li>
+        <li> <a href="/en/login">Login</a> </li>
         {% endif %}
-        <!-- Right now the links don't work, as this is not the way to link stuff in Django. We still did some Jinja! -->
     </ul>
 </nav>

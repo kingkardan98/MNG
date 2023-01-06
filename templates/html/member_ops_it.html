@@ -1,0 +1,6 @@
+<ul>
+    <li> <a href={% url 'update_member_view_it' name=obj.name %}>Aggiorna membro</a> </li>
+    <li> <a href={% url 'delete_member_view_it' name=obj.name %}>Cancella membro</a> </li>
+    <li> <a href={% url 'member_detail_view_it' name=obj.name %}>Riepilogo membro</a></li>
+    <li> <a href={% url 'member_history_list_view_it' name=obj.name %}>Storico operazioni</a></li>
+</ul>

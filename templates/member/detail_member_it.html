@@ -1,0 +1,24 @@
+{% extends 'html/base.html' %}
+
+{% block html_title %}
+MNNG - Info membro
+{% endblock %}
+
+{% block body_content %}
+
+{% include 'html/navbar_it.html' %}
+
+<ul>
+    <li> <a href={% url 'member_detail_view' name=obj.name %}>Change language</a></li>
+</ul>
+
+{% include 'html/member_ops_it.html' %}
+
+<h1>Informazioni membro</h1>
+
+<p>Username: {{ obj.username }}</p>
+<p>Email: {{ obj.email }}</p>
+<p>Disponibilità: ${{ obj.availability }}</p>
+<p>Limite di spesa: ${{ obj.spendable }}</p>
+
+{% endblock %}

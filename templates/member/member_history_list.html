@@ -8,13 +8,16 @@ MNNG - Edit history
 
 {% include 'html/navbar.html' %}
 
+<ul>
+    <li> <a href={% url 'member_history_list_view_it' name=obj.name %}>Cambia lignua</a></li>
+</ul>
 {% include 'html/member_ops.html' %}
 
 <h1>User edit history</h1>
 
 <ul>
-{% for record in history %}
-<li> {{ obj.name }} operation: {{ record }} </li>
+{% for record, timestamp in history.items %}
+<li> {{ obj.name }} operation ({{ timestamp }}): {{ record }} </li>
 {% endfor %}
 </ul>
 

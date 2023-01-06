@@ -1,0 +1,16 @@
+<nav>
+    <ul>
+        <li> <a href="/it/contacts">Contatti</a> </li>
+        <li> <a href="/it/about">Informazioni</a> </li>
+        <li> <a href="/it">Pagina home</a> </li> 
+        <li> <a href="/it/create_user">Iscriviti</a> </li>
+        {% if user.is_authenticated %}
+        <li> <a href="{% url 'member_list_view_it' logged_user=user.username %}">Visualizza lista membri</a></li>
+        <li> <a href="/it/create_member">Crea membro</a> </li>
+        <li> <a href="/it/logout">Disconnettiti</a></li>
+        <li> <a href="/it/delete">Cancella utente</a></li>
+        {% else %}
+        <li> <a href="/it/login">Connettiti</a> </li>
+        {% endif %}
+    </ul>
+</nav>

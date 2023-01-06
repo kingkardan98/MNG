@@ -1,0 +1,17 @@
+{% extends 'html/base.html'%}
+
+{% block html_title %}
+MNNG - Informazioni
+{% endblock %}
+
+{% block body_content %}
+
+{% include 'html/navbar_it.html' %}
+
+<h1>Informazioni</h1>
+
+<p> Informazioni: {{ about }} </p>
+<p> Email: {{ email }} </p>
+<p> Telefono: {{ phone }} </p>
+
+{% endblock %}

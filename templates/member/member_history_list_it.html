@@ -1,0 +1,25 @@
+{% extends 'html/base.html' %}
+
+{% block html_title %}
+MNNG - Storico modifiche
+{% endblock %}
+
+{% block body_content %}
+
+{% include 'html/navbar_it.html' %}
+
+<ul>
+    <li> <a href={% url 'member_history_list_view' name=obj.name %}>Change language</a></li>
+</ul>
+
+{% include 'html/member_ops_it.html' %}
+
+<h1>Storico modifiche membro</h1>
+
+<ul>
+{% for record, timestamp in history.items %}
+<li> Operazione su {{ obj.name }} ({{ timestamp }}): {{ record }} </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

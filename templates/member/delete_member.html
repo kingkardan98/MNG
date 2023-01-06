@@ -7,6 +7,10 @@ MNNG - Delete member
 {% block body_content %}
 {% include 'html/navbar.html' %}
 
+<ul>
+    <li> <a href={% url 'delete_member_view_it' name=obj.name %}>Cambia lingua</a> </li>
+</ul>
+
 {% include 'html/member_ops.html' %}
 
 <form method="POST"> {% csrf_token %}

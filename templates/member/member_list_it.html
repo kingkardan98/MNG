@@ -1,0 +1,27 @@
+{% extends 'html/base.html' %}
+
+{% block html_title %}
+MNNG - Member list
+{% endblock %}
+
+{% block body_content %}
+
+<h1>Benvenuto, {{ request.user }}!</h1>
+
+{% include 'html/navbar_it.html' %}
+
+<ul>
+    <li> <a href="{% url 'member_list_view' logged_user=user.username %}">Change language</a></li>
+</ul>
+
+<h2>Lista membri</h2>
+
+<ul>
+{% for obj in memberList%}
+    <li>
+        <a href={% url 'member_detail_view_it' name=obj.name %}>{{ obj.name }}</a>
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}
