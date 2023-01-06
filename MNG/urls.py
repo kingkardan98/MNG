@@ -26,6 +26,7 @@ from userAuth.views import *
 urlpatterns = [
 
     path('admin/', admin.site.urls),
+    path('', choose_language_view, name='choose_language_view'),
 
     # All English URL patterns
 

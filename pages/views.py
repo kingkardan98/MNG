@@ -3,6 +3,9 @@ from django.http import HttpResponse
 
 # Create your views here.
 
+def choose_language_view(request):
+    return render(request, "html/choose_language.html")
+
 def home_view(request):
     return render(request, "html/home_view.html", {})
 
