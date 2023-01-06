@@ -4,6 +4,10 @@ from .models import Member
 from .forms import MemberForm
 from .admin import MemberHistoryAdmin
 
+from .edit_parse import operationEnToIt
+
+import pytz
+
 # Create your views here.
 
 def member_create_view(request):
@@ -213,8 +217,12 @@ def member_history_list_view_it(request, name):
 
     for e in obj_history:
         operation = MemberHistoryAdmin.list_changes(MemberHistoryAdmin, e)
-        timestamp = MemberHistoryAdmin.get_datetime(MemberHistoryAdmin, e)
+
         if operation != None:
+            operation = operationEnToIt(operation)
+
+            timestamp = MemberHistoryAdmin.get_datetime(MemberHistoryAdmin, e)
+            timestamp = timestamp.astimezone(pytz.timezone('Europe/Rome')).strftime("%d/%m/%Y, %H:%M:%S")
             history[operation] = timestamp
 
     context = {

@@ -17,7 +17,7 @@ MNNG - Edit history
 
 <ul>
 {% for record, timestamp in history.items %}
-<li> {{ obj.name }} operation ({{ timestamp }}): {{ record }} </li>
+<li> {{ obj.name }} operation ({{ timestamp }}): {{ record|capfirst }} </li>
 {% endfor %}
 </ul>
 
