@@ -35,7 +35,7 @@ def contacts_view_it(request):
         "contacts_text": "Contatti",
         "contacts_dict": {"mary": "123", "jackson": "000", "meeseeks": "4446064447777833777063377773333557777"} 
     }
-    return render(request, "html/contacts_view.html_it", context)
+    return render(request, "html/contacts_view_it.html", context)
 
 def about_view_it(request):
     context = {
