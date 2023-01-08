@@ -7,14 +7,14 @@ def choose_language_view(request):
     return render(request, "html/choose_language.html")
 
 def home_view(request):
-    return render(request, "html/home_view.html", {})
+    return render(request, "html/en/home_view.html", {})
 
 def contacts_view(request):
     context = {
         "contacts_text": "Contact information",
         "contacts_dict": {"mary": "123", "jackson": "000", "meeseeks": "4446064447777833777063377773333557777"} 
     }
-    return render(request, "html/contacts_view.html", context)
+    return render(request, "html/en/contacts_view.html", context)
 
 def about_view(request):
     context = {
@@ -23,10 +23,10 @@ def about_view(request):
         "phone": "123 4567890"
     }
 
-    return render(request, "html/about_view.html", context)
+    return render(request, "html/en/about_view.html", context)
 
 def refused(request):
-    return render(request, 'html/refused.html', {}, status=401)
+    return render(request, 'html/en/refused.html', {}, status=401)
 
 # ----------------------------- ITALIAN -----------------------------
 # -----------------------------  AHEAD  -----------------------------
@@ -34,14 +34,14 @@ def refused(request):
 # --------------------------- PASTAFULLY ----------------------------
 
 def home_view_it(request):
-    return render(request, "html/home_view_it.html", {})
+    return render(request, "html/it/home_view_it.html", {})
 
 def contacts_view_it(request):
     context = {
         "contacts_text": "Contatti",
         "contacts_dict": {"mary": "123", "jackson": "000", "meeseeks": "4446064447777833777063377773333557777"} 
     }
-    return render(request, "html/contacts_view_it.html", context)
+    return render(request, "html/it/contacts_view_it.html", context)
 
 def about_view_it(request):
     context = {
@@ -50,7 +50,7 @@ def about_view_it(request):
         "phone": "123 4567890"
     }
 
-    return render(request, "html/about_view_it.html", context)
+    return render(request, "html/it/about_view_it.html", context)
 
 def refused_it(request):
-    return render(request, 'html/refused_it.html', {}, status=401)
+    return render(request, 'html/it/refused_it.html', {}, status=401)

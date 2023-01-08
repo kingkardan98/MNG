@@ -1,19 +1,18 @@
 {% extends 'html/base.html'%}
 
 {% block html_title %}
-MNNG - Contatti
+MNNG - Contacts
 {% endblock %}
 
 {% block body_content %}
 
-{% include 'html/navbar_it.html' %}
-
+{% include 'html/en/navbar.html' %}
 <ul>
-    <li> <a href="{% url 'contacts' %}">Change language</a> </li>
+    <li><a href="{% url 'contacts_it' %}">Cambia lingua</a></li>
 </ul>
 
 
-<h1>Contatti</h1>
+<h1>Contacts</h1>
 
 <p>
     {{ contacts_text }}

@@ -36,7 +36,7 @@ def logout_user(request):
         "username": request.user.username
     }
     logout(request)
-    return render(request, 'userAuth/logout.html', context)
+    return render(request, 'userAuth/en/logout.html', context)
 
 def create_user_view(request):
     form = UserCreationForm()
@@ -62,7 +62,7 @@ def create_user_view(request):
 
             return redirect('member_list_view', logged_user=request.user)
 
-        return render(request, 'userAuth/create_user.html', context)
+        return render(request, 'userAuth/en/create_user.html', context)
         
     else:
         form = UserCreationForm()
@@ -70,7 +70,7 @@ def create_user_view(request):
             'form': form
         }
 
-    return render(request, 'userAuth/create_user.html', context)
+    return render(request, 'userAuth/en/create_user.html', context)
 
 def delete_user(request):
     username = request.user
@@ -97,9 +97,9 @@ def delete_user(request):
 
             context = {'username': username}
 
-            return render(request, 'userAuth/delete_success.html', context)
+            return render(request, 'userAuth/en/delete_success.html', context)
 
-    return render(request, 'userAuth/delete_user.html', context)
+    return render(request, 'userAuth/en/delete_user.html', context)
 
 # ----------------------------- ITALIAN -----------------------------
 # -----------------------------  AHEAD  -----------------------------
@@ -111,7 +111,7 @@ def logout_user_it(request):
         "username": request.user.username
     }
     logout(request)
-    return render(request, 'userAuth/logout_it.html', context)
+    return render(request, 'userAuth/it/logout_it.html', context)
 
 def create_user_view_it(request):
     form = UserCreationForm()
@@ -140,7 +140,7 @@ def create_user_view_it(request):
             'form': form
         }
 
-    return render(request, 'userAuth/create_user_it.html', context)
+    return render(request, 'userAuth/it/create_user_it.html', context)
 
 def delete_user_it(request):
     username = request.user
@@ -167,6 +167,6 @@ def delete_user_it(request):
 
             context = {'username': username}
 
-            return render(request, 'userAuth/delete_success_it.html', context)
+            return render(request, 'userAuth/it/delete_success_it.html', context)
 
-    return render(request, 'userAuth/delete_user_it.html', context)
+    return render(request, 'userAuth/it/delete_user_it.html', context)

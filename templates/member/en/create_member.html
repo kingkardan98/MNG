@@ -7,12 +7,12 @@ MNNG - Create member
 
 {% block body_content %}
 
-{% include 'html/navbar.html' %}
+{% include 'html/en/navbar.html' %}
 <ul>
     <li><a href="/it/create_member">Cambia lingua</a></li>
 </ul>
 
-<h1>Create user</h1>
+<h1>Create member</h1>
 
 <form method="POST">{% csrf_token %}
     {% for field in form %}

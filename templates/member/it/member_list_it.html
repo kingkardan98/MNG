@@ -8,7 +8,7 @@ MNNG - Lista membri
 
 <h1>Benvenuto, {{ request.user }}!</h1>
 
-{% include 'html/navbar_it.html' %}
+{% include 'html/it/navbar_it.html' %}
 
 <ul>
     <li> <a href="{% url 'member_list_view' logged_user=user.username %}">Change language</a></li>

@@ -30,10 +30,10 @@ def member_create_view(request):
     context = {
             "form": form
         }
-    return render(request, 'member/create_member.html', context)
+    return render(request, 'member/en/create_member.html', context)
 
 def create_success_view(request):
-    return render(request, "member/create_success.html")
+    return render(request, "member/en/create_success.html")
 
 def member_list_view(request, logged_user):
     memberList = list(Member.objects.filter(author = logged_user))
@@ -44,7 +44,7 @@ def member_list_view(request, logged_user):
 
     if obj == None:
         context = {}
-        return render(request, 'member/member_list.html', context)
+        return render(request, 'member/en/member_list.html', context)
         
 
     context = {
@@ -52,7 +52,7 @@ def member_list_view(request, logged_user):
         "logged_user": logged_user
     }
 
-    return render(request, 'member/member_list.html', context)
+    return render(request, 'member/en/member_list.html', context)
 
 def member_detail_view(request, name):
     # The R in CRUD - FULLY WORKS
@@ -66,7 +66,7 @@ def member_detail_view(request, name):
         "obj": obj
     }
 
-    return render(request, "member/detail_member.html", context)
+    return render(request, "member/en/detail_member.html", context)
 
 def member_history_list_view(request, name):
     obj = get_object_or_404(Member, name=name)
@@ -90,7 +90,7 @@ def member_history_list_view(request, name):
         'history': history,
     }
 
-    return render(request, 'member/member_history_list.html', context)
+    return render(request, 'member/en/member_history_list.html', context)
 
 def update_member_view(request, name):
     # The U in CRUD - FULLY WORKS
@@ -116,10 +116,10 @@ def update_member_view(request, name):
         "member_form": member_form
     }
 
-    return render(request, "member/update_member.html", context)
+    return render(request, "member/en/update_member.html", context)
 
 def update_success_view(request):
-    return render(request, 'member/update_success.html', {})
+    return render(request, 'member/en/update_success.html', {})
 
 
 def delete_member_view(request, name):
@@ -137,10 +137,10 @@ def delete_member_view(request, name):
         "obj": obj
     }
 
-    return render(request, "member/delete_member.html", context)
+    return render(request, "member/en/delete_member.html", context)
 
 def delete_success_view(request):
-    return render(request, 'member/delete_success.html', {})
+    return render(request, 'member/en/delete_success.html', {})
 
 def user_delete_cleaner_function(user_members):
     for obj in user_members:
@@ -176,10 +176,10 @@ def member_create_view_it(request):
             "form": form,
             "field_names": field_names
         }
-    return render(request, 'member/create_member_it.html', context)
+    return render(request, 'member/it/create_member_it.html', context)
 
 def create_success_view_it(request):
-    return render(request, "member/create_success_it.html")
+    return render(request, "member/it/create_success_it.html")
 
 def member_list_view_it(request, logged_user):
     memberList = list(Member.objects.filter(author = logged_user))
@@ -190,7 +190,7 @@ def member_list_view_it(request, logged_user):
 
     if obj == None:
         context = {}
-        return render(request, 'member/member_list_it.html', context)
+        return render(request, 'member/it/member_list_it.html', context)
         
 
     context = {
@@ -198,7 +198,7 @@ def member_list_view_it(request, logged_user):
         "logged_user": logged_user
     }
 
-    return render(request, 'member/member_list_it.html', context)
+    return render(request, 'member/it/member_list_it.html', context)
 
 def member_detail_view_it(request, name):
     # The R in CRUD - FULLY WORKS
@@ -212,7 +212,7 @@ def member_detail_view_it(request, name):
         "obj": obj
     }
 
-    return render(request, "member/detail_member_it.html", context)
+    return render(request, "member/it/detail_member_it.html", context)
 
 def member_history_list_view_it(request, name):
     obj = get_object_or_404(Member, name=name)
@@ -237,7 +237,7 @@ def member_history_list_view_it(request, name):
         'history': history,
     }
 
-    return render(request, 'member/member_history_list_it.html', context)
+    return render(request, 'member/it/member_history_list_it.html', context)
 
 def update_member_view_it(request, name):
     # The U in CRUD - FULLY WORKS
@@ -263,10 +263,10 @@ def update_member_view_it(request, name):
         "member_form": member_form
     }
 
-    return render(request, "member/update_member_it.html", context)
+    return render(request, "member/it/update_member_it.html", context)
 
 def update_success_view_it(request):
-    return render(request, 'member/update_success_it.html', {})
+    return render(request, 'member/it/update_success_it.html', {})
 
 
 def delete_member_view_it(request, name):
@@ -284,7 +284,7 @@ def delete_member_view_it(request, name):
         "obj": obj
     }
 
-    return render(request, "member/delete_member_it.html", context)
+    return render(request, "member/it/delete_member_it.html", context)
 
 def delete_success_view_it(request):
-    return render(request, 'member/delete_success_it.html', {})
+    return render(request, 'member/it/delete_success_it.html', {})

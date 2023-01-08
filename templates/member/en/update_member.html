@@ -7,13 +7,13 @@ MNNG - Update member
 
 {% block body_content %}
 
-{% include 'html/navbar.html' %}
+{% include 'html/en/navbar.html' %}
 
 <ul>
     <li> <a href="{% url 'update_member_view_it' name=obj.name %}">Cambia lingua</a></li>
 </ul>
 
-{% include 'html/member_ops.html' %}
+{% include 'html/en/member_ops.html' %}
 
 <h1>Update user {{ old_obj.name }}</h1>
 <h2>Review your information:</h2>
