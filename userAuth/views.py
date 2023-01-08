@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -45,6 +45,12 @@ def create_user_view(request):
     }
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
+        possible_user = User.objects.filter(username=request.POST['username'])
+        if possible_user != None:
+            messages.success(request, 'User already existing, use another username.')
+        else:
+            pass
+
         if form.is_valid():
             form.save()
             messages.success(request, "User created succesfully!")
@@ -55,6 +61,8 @@ def create_user_view(request):
             login(request, user)
 
             return redirect('member_list_view', logged_user=request.user)
+
+        return render(request, 'userAuth/create_user.html', context)
         
     else:
         form = UserCreationForm()
@@ -94,6 +102,9 @@ def delete_user(request):
     return render(request, 'userAuth/delete_user.html', context)
 
 # ----------------------------- ITALIAN -----------------------------
+# -----------------------------  AHEAD  -----------------------------
+# -----------------------------  TREAD  -----------------------------
+# --------------------------- PASTAFULLY ----------------------------
 
 def logout_user_it(request):
     context = {
@@ -109,6 +120,9 @@ def create_user_view_it(request):
     }
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
+        possible_user = User.objects.filter(username=request.POST['username'])
+        if possible_user != None:
+            messages.success(request, 'Utente già registrato, usare un altro nome utente.')
         if form.is_valid():
             form.save()
             messages.success(request, "Utente creato con successo!")
