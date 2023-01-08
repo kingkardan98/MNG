@@ -7,13 +7,14 @@ def spendableCheck(data):
     return ''
 
 checkFuncList = [spendableCheck]
-errorMessages = {'spendable': "Spending limit must be lower than availability."}
+errorMessagesEn = {'spendable': "Spending limit must be lower than availability."}
+errorMessagesIt = {'spendable': 'Il limite di spesa non può essere maggiore della disponibilità.'}
 relations = {
     'spendable': 'spendable'
 
 }
 
-def checkSuite(data, checklist = checkFuncList, error_messages = errorMessages, relations = relations):
+def checkSuite(data, checklist = checkFuncList, error_messages_en = errorMessagesEn, error_messages_it = errorMessagesIt, relations = relations):
     # The variable checklist is passed with the default value
     # so that by simply adding or removing a function from
     # checkFuncList will still do the job.
@@ -26,5 +27,5 @@ def checkSuite(data, checklist = checkFuncList, error_messages = errorMessages, 
         result = func(data)
         if result != '':
             errorList.append(result)
-    return errorList, relations, error_messages
+    return errorList, relations, error_messages_en, error_messages_it
 
