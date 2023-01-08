@@ -4,7 +4,7 @@
 MNNG - Storico modifiche
 {% endblock %}
 
-{% block body_content %}
+{% block navbar %}
 
 <div class="navbarFlex">
 {% include 'html/it/navbar_it.html' %}
@@ -13,14 +13,20 @@ MNNG - Storico modifiche
 </p>
 </div>
 
-{% include 'html/it/member_ops_it.html' %}
+{% endblock %}
+
+{% block body_content %}
 
 <h1>Storico modifiche membro</h1>
 
-<ul>
-{% for record, timestamp in history.items %}
-<li> Operazione su {{ obj.name }} ({{ timestamp }}): {{ record|capfirst|safe }} </li>
-{% endfor %}
-</ul>
+<button type="button" class="editCollapsible">Storico modifiche</button>
+    <div class="editCollapsibleContent">
+        {% for record, timestamp in history.items %}
+        <button type="button" class="editCollapsible">Operazione su {{ obj.name }} ({{ timestamp }})</button>
+            <div class="editCollapsibleContent"> {{ record|capfirst|safe }} </div>
+        {% endfor %}
+    </div>
+
+{% include 'html/it/member_ops_it.html' %}
 
 {% endblock %}

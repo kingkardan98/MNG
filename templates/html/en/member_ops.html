@@ -1,6 +1,7 @@
-<ul>
-    <li> <a href={% url 'update_member_view' name=obj.name %}>Update member</a> </li>
-    <li> <a href={% url 'delete_member_view' name=obj.name %}>Delete member</a> </li>
-    <li> <a href={% url 'member_detail_view' name=obj.name %}>Member page</a></li>
-    <li> <a href={% url 'member_history_list_view' name=obj.name %}>Edit history</a></li>
-</ul>
+<button type="button" class="collapsible">Member operations</button>
+    <div class="collapsibleContent">
+        <p> <a href={% url 'update_member_view' name=obj.name %}>Update member</a> </p>
+        <p> <a href={% url 'delete_member_view' name=obj.name %}>Delete member</a> </p>
+        <p> <a href={% url 'member_detail_view' name=obj.name %}>Member page</a></p>
+        <p> <a href={% url 'member_history_list_view' name=obj.name %}>Edit history</a></p>
+    </div>

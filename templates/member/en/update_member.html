@@ -5,16 +5,18 @@
 MNNG - Update member
 {% endblock %}
 
-{% block body_content %}
+{% block navbar %}
 
 <div class="navbarFlex">
 {% include 'html/en/navbar.html' %}
 <p>
-    <li> <a href="{% url 'update_member_view_it' name=obj.name %}">🇮🇹 Cambia lingua</a></li>
+    <a href="{% url 'update_member_view_it' name=obj.name %}">🇮🇹 Cambia lingua</a>
 </p>
 </div>
 
-{% include 'html/en/member_ops.html' %}
+{% endblock %}
+
+{% block body_content %}
 
 <h1>Update user {{ old_obj.name }}</h1>
 <h2>Review your information:</h2>
@@ -42,5 +44,7 @@ MNNG - Update member
     {% endfor %}
     </ol>
 {% endif %}
+
+{% include 'html/en/member_ops.html' %}
 
 {% endblock %}

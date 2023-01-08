@@ -4,7 +4,7 @@
 MNNG - Member info
 {% endblock %}
 
-{% block body_content %}
+{% block navbar %}
 
 <div class="navbarFlex">
 {% include 'html/en/navbar.html' %}
@@ -13,7 +13,9 @@ MNNG - Member info
 </p>
 </div>
 
-{% include 'html/en/member_ops.html' %}
+{% endblock %}
+
+{% block body_content %}
 
 <h1>Member info</h1>
 
@@ -21,5 +23,7 @@ MNNG - Member info
 <p>Email: {{ obj.email }}</p>
 <p>Availability: ${{ obj.availability }}</p>
 <p>Spending limit: ${{ obj.spendable }}</p>
+
+{% include 'html/en/member_ops.html' %}
 
 {% endblock %}

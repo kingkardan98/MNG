@@ -4,7 +4,7 @@
 MNNG - Eliminazione membro
 {% endblock %}
 
-{% block body_content %}
+{% block navbar %}
 
 <div class="navbarFlex">
 {% include 'html/it/navbar_it.html' %}
@@ -13,7 +13,9 @@ MNNG - Eliminazione membro
 </p>
 </div>
 
-{% include 'html/it/member_ops_it.html' %}
+{% endblock %}
+
+{% block body_content %}
 
 <form method="POST"> {% csrf_token %}
     <h1>Vuoi eliminare il membro {{ obj.name }}?</h1>
@@ -22,4 +24,6 @@ MNNG - Eliminazione membro
         <a href={% url 'member_detail_view_it' name=obj.name %}>Annulla</a>
     </p>
 </form>
+
+{% include 'html/it/member_ops_it.html' %}
 {% endblock %}

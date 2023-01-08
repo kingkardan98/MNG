@@ -4,7 +4,7 @@
 MNNG - About
 {% endblock %}
 
-{% block body_content %}
+{% block navbar %}
 
 <div class="navbarFlex">
 {% include 'html/en/navbar.html' %}
@@ -12,6 +12,10 @@ MNNG - About
     <a href="{% url 'about_view_it' %}">🇮🇹 Cambia lingua</a>
 </p>
 </div>
+
+{% endblock %}
+
+{% block body_content %}
 
 
 <h1>About</h1>

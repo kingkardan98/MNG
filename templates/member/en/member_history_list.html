@@ -4,7 +4,7 @@
 MNNG - Edit history
 {% endblock %}
 
-{% block body_content %}
+{% block navbar %}
 
 <div class="navbarFlex">
 {% include 'html/en/navbar.html' %}
@@ -13,14 +13,20 @@ MNNG - Edit history
 </p>
 </div>
 
-{% include 'html/en/member_ops.html' %}
+{% endblock %}
+
+{% block body_content %}
 
 <h1>User edit history</h1>
 
-<ul>
-{% for record, timestamp in history.items %}
-<li> {{ obj.name }} operation ({{ timestamp }}): {{ record|capfirst|safe }} </li>
-{% endfor %}
-</ul>
+<button type="button" class="editCollapsible">Edit operations</button>
+    <div class="editCollapsibleContent">
+        {% for record, timestamp in history.items %}
+        <button type="button" class="editCollapsible">{{ obj.name }} operation ({{ timestamp }})</button>
+            <div class="editCollapsibleContent">{{ record|capfirst|safe }} </div>
+        {% endfor %}
+    </div>
+
+{% include 'html/en/member_ops.html' %}
 
 {% endblock %}

@@ -4,7 +4,7 @@
 MNNG - Delete member
 {% endblock %}
 
-{% block body_content %}
+{% block navbar %}
 
 <div class="navbarFlex">
 {% include 'html/en/navbar.html' %}
@@ -13,7 +13,9 @@ MNNG - Delete member
 </p>
 </div>
 
-{% include 'html/en/member_ops.html' %}
+{% endblock %}
+
+{% block body_content %}
 
 <form method="POST"> {% csrf_token %}
     <h1>Do you want to delete the member {{ obj.name }}?</h1>
@@ -22,4 +24,6 @@ MNNG - Delete member
         <a href={% url 'member_detail_view' name=obj.name %}>Cancel</a>
     </p>
 </form>
+
+{% include 'html/en/member_ops.html' %}
 {% endblock %}
