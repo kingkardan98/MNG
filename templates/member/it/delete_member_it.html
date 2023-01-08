@@ -5,13 +5,13 @@ MNNG - Eliminazione membro
 {% endblock %}
 
 {% block body_content %}
-{% include 'html/it/navbar.html' %}
+{% include 'html/it/navbar_it.html' %}
 
 <ul>
     <li> <a href={% url 'delete_member_view' name=obj.name %}>Change language</a> </li>
 </ul>
 
-{% include 'html/it/member_ops.html' %}
+{% include 'html/it/member_ops_it.html' %}
 
 <form method="POST"> {% csrf_token %}
     <h1>Vuoi eliminare il membro {{ obj.name }}?</h1>
