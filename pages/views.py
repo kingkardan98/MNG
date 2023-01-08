@@ -29,6 +29,9 @@ def refused(request):
     return render(request, 'html/refused.html', {}, status=401)
 
 # ----------------------------- ITALIAN -----------------------------
+# -----------------------------  AHEAD  -----------------------------
+# -----------------------------  TREAD  -----------------------------
+# --------------------------- PASTAFULLY ----------------------------
 
 def home_view_it(request):
     return render(request, "html/home_view_it.html", {})
