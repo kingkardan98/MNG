@@ -10,7 +10,7 @@ MNNG - Update member
 {% include 'html/navbar.html' %}
 
 <ul>
-    <li> <a href="{% url 'update_member_view_it' logged_user=user.username %}">Cambia lingua</a></li>
+    <li> <a href="{% url 'update_member_view_it' name=obj.name %}">Cambia lingua</a></li>
 </ul>
 
 {% include 'html/member_ops.html' %}
