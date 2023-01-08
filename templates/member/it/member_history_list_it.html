@@ -18,7 +18,7 @@ MNNG - Storico modifiche
 
 <ul>
 {% for record, timestamp in history.items %}
-<li> Operazione su {{ obj.name }} ({{ timestamp }}): {{ record|capfirst }} </li>
+<li> Operazione su {{ obj.name }} ({{ timestamp }}): {{ record|capfirst|safe }} </li>
 {% endfor %}
 </ul>
 
