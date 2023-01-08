@@ -18,11 +18,11 @@ OPERATION_TRANSLATE = {
         }
 
 OPERATION_FORMAT = {
-    '.availability': '.<br /> Availability',
-    '.spendable': '.<br /> Spendable',
-    '.email': '.<br /> Email',
-    '.author': '.<br /> Author',
-    '.name': '.<br /> Name'
+    '.availability': '.<br /> <p class="gap5"></p> Availability',
+    '.spendable': '.<br /> <p class="gap5"></p> Spendable',
+    '.email': '.<br /> <p class="gap5"></p> Email',
+    '.author': '.<br /> <p class="gap5"></p> Author',
+    '.name': '.<br /> <p class="gap5"></p> Name'
 }
 
 def operationEnToIt(operation):
