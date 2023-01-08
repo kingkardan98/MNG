@@ -69,8 +69,8 @@ class MemberForm(forms.ModelForm):
             'availability': cleaned_data.get("availability")
         }
 
-        errorList, relations, error_messages = checkSuite(data_dict)
+        errorList, relations, error_messages_en, error_messages_it = checkSuite(data_dict)
         for error in errorList:
-            self.add_error(relations[error], error_messages[error])
+            self.add_error(relations[error], '%s / %s' % (str(error_messages_en[error]), str(error_messages_it[error])))
         
         return cleaned_data
