@@ -4,11 +4,14 @@ from .models import Member
 from .forms import MemberForm
 from .admin import MemberHistoryAdmin
 
-from .edit_parse import operationEnToIt
+from .edit_parse import *
 
 import pytz
 
 # Create your views here.
+
+# ----------------------------- ENGLISH -----------------------------
+# -----------------------------  VIEWS  -----------------------------
 
 def member_create_view(request):
     # The C in CRUD - FULLY WORKS
@@ -76,9 +79,11 @@ def member_history_list_view(request, name):
 
     for e in obj_history:
         operation = MemberHistoryAdmin.list_changes(MemberHistoryAdmin, e)
+        print(type(operation), operation)
         timestamp = MemberHistoryAdmin.get_datetime(MemberHistoryAdmin, e)
         if operation != None:
-            history[operation] = timestamp
+            new_operation = operationFormat(operation)
+            history[new_operation] = timestamp
 
     context = {
         'obj': obj,
@@ -101,7 +106,7 @@ def update_member_view(request, name):
 
     if request.method == "POST":
         member_form = MemberForm(request.POST, instance=obj, initial={'author': logged_user})
-        if member_form.is_valid() and member_form.errors == {}:
+        if member_form.is_valid():
             member_form.save()
             return redirect(reverse('update_success_view'))
 
@@ -142,6 +147,9 @@ def user_delete_cleaner_function(user_members):
         obj.delete()
 
 # ----------------------------- ITALIAN -----------------------------
+# -----------------------------  AHEAD  -----------------------------
+# -----------------------------  TREAD  -----------------------------
+# --------------------------- PASTAFULLY ----------------------------
 
 def member_create_view_it(request):
     # The C in CRUD - FULLY WORKS
@@ -219,11 +227,10 @@ def member_history_list_view_it(request, name):
         operation = MemberHistoryAdmin.list_changes(MemberHistoryAdmin, e)
 
         if operation != None:
-            operation = operationEnToIt(operation)
-
+            new_operation = operationEnToIt(operationFormat(operation))
             timestamp = MemberHistoryAdmin.get_datetime(MemberHistoryAdmin, e)
             timestamp = timestamp.astimezone(pytz.timezone('Europe/Rome')).strftime("%d/%m/%Y, %H:%M:%S")
-            history[operation] = timestamp
+            history[new_operation] = timestamp
 
     context = {
         'obj': obj,
