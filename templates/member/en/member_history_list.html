@@ -6,11 +6,13 @@ MNNG - Edit history
 
 {% block body_content %}
 
+<div class="navbarFlex">
 {% include 'html/en/navbar.html' %}
+<p>
+    <a href={% url 'member_history_list_view_it' name=obj.name %}>🇮🇹 Cambia lingua</a>
+</p>
+</div>
 
-<ul>
-    <li> <a href={% url 'member_history_list_view_it' name=obj.name %}>Cambia lignua</a></li>
-</ul>
 {% include 'html/en/member_ops.html' %}
 
 <h1>User edit history</h1>

@@ -6,11 +6,12 @@ MNNG - Info membro
 
 {% block body_content %}
 
+<div class="navbarFlex">
 {% include 'html/it/navbar_it.html' %}
-
-<ul>
-    <li> <a href={% url 'member_detail_view' name=obj.name %}>Change language</a></li>
-</ul>
+<p>
+    <a href={% url 'member_detail_view' name=obj.name %}>🇬🇧 Change language</a>
+</p>
+</div>
 
 {% include 'html/it/member_ops_it.html' %}
 

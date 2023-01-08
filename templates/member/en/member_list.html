@@ -6,13 +6,14 @@ MNNG - Member list
 
 {% block body_content %}
 
-<h1>Welcome, {{ request.user }}!</h1>
-
+<div class="navbarFlex">
 {% include 'html/en/navbar.html' %}
+<p>
+    <a href="{% url 'member_list_view_it' logged_user=user.username %}">🇮🇹 Cambia lingua</a>
+</p>
+</div>
 
-<ul>
-    <li> <a href="{% url 'member_list_view_it' logged_user=user.username %}">Cambia lingua</a></li>
-</ul>
+<h1>Welcome, {{ request.user }}!</h1>
 
 <h2>Members list</h2>
 

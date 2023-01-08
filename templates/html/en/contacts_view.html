@@ -6,10 +6,12 @@ MNNG - Contacts
 
 {% block body_content %}
 
-{% include 'html/en/navbar.html' %}
-<ul>
-    <li><a href="{% url 'contacts_it' %}">Cambia lingua</a></li>
-</ul>
+<div class="navbarFlex">
+    {% include 'html/en/navbar.html' %}
+    <p>
+        <a href="{% url 'contacts_it' %}">🇮🇹 Cambia lingua</a>
+    </p>
+</div>
 
 
 <h1>Contacts</h1>

@@ -5,11 +5,13 @@ MNNG - Delete member
 {% endblock %}
 
 {% block body_content %}
-{% include 'html/en/navbar.html' %}
 
-<ul>
-    <li> <a href={% url 'delete_member_view_it' name=obj.name %}>Cambia lingua</a> </li>
-</ul>
+<div class="navbarFlex">
+{% include 'html/en/navbar.html' %}
+<p>
+    <a href={% url 'delete_member_view_it' name=obj.name %}>🇮🇹 Cambia lingua</a>
+</p>
+</div>
 
 {% include 'html/en/member_ops.html' %}
 

@@ -5,10 +5,13 @@ MNNG - Eliminazione utente
 {% endblock %}
 
 {% block body_content %}
+
+<div class="navbarFlex">
 {% include 'html/it/navbar_it.html' %}
-<ul>
-    <li><a href="en/delete/">Change language</a></li>
-</ul>
+<p>
+    <a href="en/delete/">🇬🇧 Change language</a>
+</P>
+</div>
 
 <form method="POST"> {% csrf_token %}
     <h1>Si vuole cancellare l'utente {{ username }}?</h1>

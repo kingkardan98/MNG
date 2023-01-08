@@ -1,16 +1,12 @@
-<nav>
-    <ul>
-        <li> <a href="/en/contacts">Contacts</a> </li>
-        <li> <a href="/en/about">About</a> </li>
-        <li> <a href="/en">Home page</a> </li> 
-        <li> <a href="/en/create_user">Sign up</a> </li>
-        {% if user.is_authenticated %}
-        <li> <a href="{% url 'member_list_view' logged_user=user.username %}">See members list</a></li>
-        <li> <a href="/en/create_member">Create member</a> </li>
-        <li> <a href="/en/logout">Logout</a></li>
-        <li> <a href="/en/delete">Delete user</a></li>
-        {% else %}
-        <li> <a href="/login">Login</a> </li>
-        {% endif %}
-    </ul>
-</nav>
+<p> <a href="/en/contacts">Contacts</a> </p>
+<p> <a href="/en/about">About</a> </p>
+<p> <a href="/en">Home page</a> </p> 
+{% if user.is_authenticated %}
+    <p> <a href="{% url 'member_list_view' logged_user=user.username %}">See members list</a></p>
+    <p> <a href="/en/create_member">Create member</a> </p>
+    <p> <a href="/en/logout">Logout</a></p>
+    <p> <a href="/en/delete">Delete user</a></p>
+{% else %}
+    <p> <a href="/login">Login</a> </p>
+    <p> <a href="/en/create_user">Sign up</a> </p>
+{% endif %}

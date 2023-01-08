@@ -5,11 +5,13 @@ MNNG - Delete user
 {% endblock %}
 
 {% block body_content %}
-{% include 'html/en/navbar.html' %}
-<ul>
-    <li><a href="it/create_user/">Cambia lingua</a></li>
-</ul>
 
+<div class="navbarFlex">
+{% include 'html/en/navbar.html' %}
+<p>
+    <a href="it/create_user/">🇮🇹 Cambia lingua</a>
+</p>
+</div>
 
 <form method="POST"> {% csrf_token %}
     <h1>Do you want to delete the user {{ username }}?</h1>

@@ -10,7 +10,9 @@ MNNG - Login
 {% if messages %}
 <ul>
 {% for message in messages %}
+{% if not message.used %}
   <li> {{ message }}</li>
+{% endif %}
 {% endfor %}  
 </ul>
 {% endif %}

@@ -6,10 +6,12 @@ MNNG - About
 
 {% block body_content %}
 
+<div class="navbarFlex">
 {% include 'html/en/navbar.html' %}
-<ul>
-    <li><a href="{% url 'about_view_it' %}">Cambia lingua</a></li>
-</ul>
+<p>
+    <a href="{% url 'about_view_it' %}">🇮🇹 Cambia lingua</a>
+</p>
+</div>
 
 
 <h1>About</h1>

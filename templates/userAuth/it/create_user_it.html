@@ -6,11 +6,12 @@ MNNG - Creazione utente
 
 {% block body_content %}
 
+<div class="navbarFlex">
 {% include 'html/it/navbar_it.html' %}
-
-<ul>
-    <li><a href="{% url 'create_user_view' %}">Change language</a></li>
-</ul>
+<p>
+    <a href="{% url 'create_user_view' %}">🇬🇧 Change language</a>
+</p>
+</div>
 
 <h1>Iscriviti</h1>
 
