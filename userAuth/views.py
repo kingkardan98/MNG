@@ -15,6 +15,9 @@ def login_user(request):
     request.session['logged_user'] = ''
     context = {}
 
+    storage = messages.get_messages(request)
+    storage.used = True
+
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -39,6 +42,9 @@ def logout_user(request):
     return render(request, 'userAuth/en/logout.html', context)
 
 def create_user_view(request):
+    storage = messages.get_messages(request)
+    storage.used = True
+    
     form = UserCreationForm()
     context = {
         'form': form
