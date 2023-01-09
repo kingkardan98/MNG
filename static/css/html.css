@@ -41,3 +41,7 @@ body {
     background-color: #305a82;
     color: white;
 }
+
+.navbarColor:hover{
+    color: white;
+}
