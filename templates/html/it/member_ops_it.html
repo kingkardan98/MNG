@@ -1,8 +1,8 @@
 <button type="button" class="collapsible arrow">Operazioni membri</button>
     <div class="collapsibleContent">
         <p class="gap5"></p>
-        <p> <a href={% url 'update_member_view_it' name=obj.name %}>Aggiorna membro</a> </p>
-        <p> <a href={% url 'delete_member_view_it' name=obj.name %}>Cancella membro</a> </p>
-        <p> <a href={% url 'member_detail_view_it' name=obj.name %}>Riepilogo membro</a></p>
-        <p> <a href={% url 'member_history_list_view_it' name=obj.name %}>Storico operazioni</a></p>
+        <p> <a href={% url 'update_member_view_it' name=obj.name %} style="display: block; width: 100%;">Aggiorna membro</a> </p>
+        <p> <a href={% url 'delete_member_view_it' name=obj.name %} style="display: block; width: 100%;">Cancella membro</a> </p>
+        <p> <a href={% url 'member_detail_view_it' name=obj.name %} style="display: block; width: 100%;">Riepilogo membro</a></p>
+        <p> <a href={% url 'member_history_list_view_it' name=obj.name %} style="display: block; width: 100%;">Storico operazioni</a></p>
     </div>
