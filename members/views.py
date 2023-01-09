@@ -57,7 +57,7 @@ def member_list_view(request, logged_user):
 def member_detail_view(request, name):
     # The R in CRUD - FULLY WORKS
 
-    obj = get_object_or_404(Member, name=name)
+    obj = get_object_or_404(Member, name=name, author=request.user)
 
     if str(request.user) != obj.author:
         return redirect(reverse('refused'))
@@ -96,8 +96,8 @@ def update_member_view(request, name):
     # The U in CRUD - FULLY WORKS
 
     logged_user = request.user
-    obj = get_object_or_404(Member, name=name)
-    old_obj = get_object_or_404(Member, name=name)
+    obj = get_object_or_404(Member, name=name, author=request.user)
+    old_obj = get_object_or_404(Member, name=name, author=request.user)
 
     if str(logged_user) != str(obj.author):
         return redirect(reverse('refused'))
@@ -125,7 +125,7 @@ def update_success_view(request):
 def delete_member_view(request, name):
     # The D in CRUD - FULLY WORKS
     
-    obj = get_object_or_404(Member, name=name)
+    obj = get_object_or_404(Member, name=name, author=request.user)
 
     if str(request.user) != obj.author:
         return redirect(reverse('refused')) 
@@ -203,7 +203,7 @@ def member_list_view_it(request, logged_user):
 def member_detail_view_it(request, name):
     # The R in CRUD - FULLY WORKS
 
-    obj = get_object_or_404(Member, name=name)
+    obj = get_object_or_404(Member, name=name, author=request.user)
 
     if str(request.user) != obj.author:
         return redirect(reverse('refused_it'))
@@ -215,7 +215,7 @@ def member_detail_view_it(request, name):
     return render(request, "member/it/detail_member_it.html", context)
 
 def member_history_list_view_it(request, name):
-    obj = get_object_or_404(Member, name=name)
+    obj = get_object_or_404(Member, name=name, author=request.user)
 
     if str(request.user) != obj.author:
         return redirect(reverse('refused_it'))
@@ -243,8 +243,8 @@ def update_member_view_it(request, name):
     # The U in CRUD - FULLY WORKS
 
     logged_user = request.user
-    obj = get_object_or_404(Member, name=name)
-    old_obj = get_object_or_404(Member, name=name)
+    obj = get_object_or_404(Member, name=name, author=request.user)
+    old_obj = get_object_or_404(Member, name=name, author=request.user)
 
     if str(logged_user) != str(obj.author):
         return redirect(reverse('refused'))
@@ -272,7 +272,7 @@ def update_success_view_it(request):
 def delete_member_view_it(request, name):
     # The D in CRUD - FULLY WORKS
     
-    obj = get_object_or_404(Member, name=name)
+    obj = get_object_or_404(Member, name=name, author=request.user)
 
     if str(request.user) != obj.author:
         return redirect(reverse('refused_it')) 
