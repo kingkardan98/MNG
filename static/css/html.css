@@ -37,6 +37,7 @@ body {
 }
 
 .navbarColor{
+    padding-top: 15px;
     background-color: #305a82;
     color: white;
 }
