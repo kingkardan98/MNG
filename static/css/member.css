@@ -51,3 +51,25 @@
     display: none;
     overflow: hidden;
     background: #f1f1f1;}
+
+.arrow {
+        margin: 0em;
+      }
+      
+.arrow::before {
+        position: absolute;
+        margin-left: 355px;
+        margin-top: 8px;
+        content: '';
+        width: 0;
+        height: 0;
+        border: .3em solid transparent;
+        border-left-color: white;
+        transform-origin: 0 50%;
+        transition: transform .25s;
+      }
+      
+.arrow.down::before {
+        transform: rotate(90deg);
+        transition: transform .25s;
+      }
