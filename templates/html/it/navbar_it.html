@@ -1,13 +1,12 @@
-
-<p> <a href="/it/contacts">Contatti</a> </p>
-<p> <a href="/it/about">Informazioni</a> </p>
-<p> <a href="/it">Pagina home</a> </p> 
+<p> <a href="/it/contacts" class="navbarColor" style="padding-left: 10px;">Contatti</a> </p>
+<p> <a href="/it/about" class="navbarColor">Informazioni</a> </p>
+<p> <a href="/it" class="navbarColor">Pagina home</a> </p> 
 {% if user.is_authenticated %}
-    <p> <a href="{% url 'member_list_view_it' logged_user=user.username %}">Visualizza lista membri</a></p>
-    <p> <a href="/it/create_member">Crea membro</a> </p>
-    <p> <a href="/it/logout">Disconnettiti</a></p>
-    <p> <a href="/it/delete">Cancella utente</a></p>
+    <p> <a href="{% url 'member_list_view_it' logged_user=user.username %}" class="navbarColor">Visualizza lista membri</a></p>
+    <p> <a href="/it/create_member" class="navbarColor">Crea membro</a> </p>
+    <p> <a href="/it/logout" class="navbarColor">Disconnettiti</a></p>
+    <p> <a href="/it/delete" class="navbarColor">Cancella utente</a></p>
 {% else %}
-    <p> <a href="/login">Connettiti</a> </p>
-    <p> <a href="/it/create_user">Iscriviti</a> </p>
+    <p> <a href="/login" class="navbarColor">Connettiti</a> </p>
+    <p> <a href="/it/create_user" class="navbarColor">Iscriviti</a> </p>
 {% endif %}

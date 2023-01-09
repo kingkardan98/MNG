@@ -1,12 +1,12 @@
-<p> <a href="/en/contacts">Contacts</a> </p>
-<p> <a href="/en/about">About</a> </p>
-<p> <a href="/en">Home page</a> </p> 
+<p> <a href="/en/contacts" class="navbarColor" style="padding-left: 10px;">Contacts</a> </p>
+<p> <a href="/en/about" class="navbarColor">About</a> </p>
+<p> <a href="/en" class="navbarColor">Home page</a> </p> 
 {% if user.is_authenticated %}
-    <p> <a href="{% url 'member_list_view' logged_user=user.username %}">See members list</a></p>
-    <p> <a href="/en/create_member">Create member</a> </p>
-    <p> <a href="/en/logout">Logout</a></p>
-    <p> <a href="/en/delete">Delete user</a></p>
+    <p> <a href="{% url 'member_list_view' logged_user=user.username %}" class="navbarColor">See members list</a></p>
+    <p> <a href="/en/create_member" class="navbarColor">Create member</a> </p>
+    <p> <a href="/en/logout" class="navbarColor">Logout</a></p>
+    <p> <a href="/en/delete" class="navbarColor">Delete user</a></p>
 {% else %}
-    <p> <a href="/login">Login</a> </p>
-    <p> <a href="/en/create_user">Sign up</a> </p>
+    <p> <a href="/login" class="navbarColor">Login</a> </p>
+    <p> <a href="/en/create_user" class="navbarColor">Sign up</a> </p>
 {% endif %}
