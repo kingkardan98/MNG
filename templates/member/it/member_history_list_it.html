@@ -19,10 +19,10 @@ MNNG - Storico modifiche
 
 <h1>Storico modifiche membro</h1>
 
-<button type="button" class="editCollapsible">Storico modifiche</button>
+<button type="button" class="editCollapsible arrow">Storico modifiche</button>
     <div class="editCollapsibleContent">
         {% for record, timestamp in history.items %}
-        <button type="button" class="editCollapsible">Operazione su {{ obj.name }} ({{ timestamp }})</button>
+        <button type="button" class="editCollapsible arrow">Operazione su {{ obj.name }} ({{ timestamp }})</button>
             <div class="editCollapsibleContent"> {{ record|capfirst|safe }} </div>
         {% endfor %}
     </div>
