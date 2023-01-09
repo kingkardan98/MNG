@@ -15,9 +15,9 @@ def login_user(request):
     request.session['logged_user'] = ''
     context = {}
 
-    storage = messages.get_messages(request)
-    storage.used = True
-
+    system_messages = messages.get_messages(request)
+    for message in system_messages:
+        pass
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -42,8 +42,10 @@ def logout_user(request):
     return render(request, 'userAuth/en/logout.html', context)
 
 def create_user_view(request):
-    storage = messages.get_messages(request)
-    storage.used = True
+
+    system_messages = messages.get_messages(request)
+    for message in system_messages:
+        pass
     
     form = UserCreationForm()
     context = {
@@ -52,8 +54,9 @@ def create_user_view(request):
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
         possible_user = User.objects.filter(username=request.POST['username'])
-        if possible_user != None:
+        if possible_user:
             messages.success(request, 'User already existing, use another username.')
+            form = UserCreationForm()
         else:
             pass
 
@@ -120,6 +123,10 @@ def logout_user_it(request):
     return render(request, 'userAuth/it/logout_it.html', context)
 
 def create_user_view_it(request):
+    system_messages = messages.get_messages(request)
+    for message in system_messages:
+        pass
+
     form = UserCreationForm()
     context = {
         'form': form
@@ -127,7 +134,7 @@ def create_user_view_it(request):
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
         possible_user = User.objects.filter(username=request.POST['username'])
-        if possible_user != None:
+        if possible_user:
             messages.success(request, 'Utente già registrato, usare un altro nome utente.')
         if form.is_valid():
             form.save()
