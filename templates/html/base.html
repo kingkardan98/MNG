@@ -47,11 +47,12 @@
             {% endblock %}
         </div>
         <div class="center">
+        <img src="{% static 'logo/logo-black.png' %}" style="width: 300px; height: auto;" alt='logo'/>
         {% block body_content %}
             root content
         {% endblock %}
         </div>
-        <script src="{% static 'js/memberOpsCollapsible.js' %}"></script>
-        <script src="{% static 'js/editHistoryCollapsible.js' %}"></script>
+        <script src="{% static '/js/memberOpsCollapsible.js' %}"></script>
+        <script src="{% static '/js/editHistoryCollapsible.js' %}"></script>
     </body>
 </html>
