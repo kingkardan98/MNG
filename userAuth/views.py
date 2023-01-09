@@ -12,6 +12,10 @@ from members.views import user_delete_cleaner_function
 # Create your views here.
 
 def login_user(request):
+    system_messages = messages.get_messages(request)
+    for message in system_messages:
+        pass
+
     request.session['logged_user'] = ''
     context = {}
 
