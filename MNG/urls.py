@@ -50,6 +50,7 @@ urlpatterns = [
     path('en/logout/', logout_user, name='logout_user'),                                                        # userAuth.views
     path('en/create_user/', create_user_view, name = 'create_user_view'),                                       # userAuth.views
     path('en/delete/', delete_user, name='delete_user'),                                                        # userAuth.views
+    path('en/user_deleted', user_delete_success_view, name='user_delete_success_view'),                         # userAuth.views
 
     # All Italian URL Patterns
     
@@ -71,5 +72,6 @@ urlpatterns = [
     path('it/logout/', logout_user_it, name='logout_user_it'),                                                  # userAuth.views
     path('it/create_user/', create_user_view_it, name = 'create_user_view_it'),                                 # userAuth.views
     path('it/delete/', delete_user_it, name='delete_user_it'),                                                  # userAuth.views
+    path('it/user_deleted', user_delete_success_view_it, name='user_delete_success_view_it'),                   # userAuth.views
 
 ]

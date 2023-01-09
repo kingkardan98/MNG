@@ -103,12 +103,13 @@ def delete_user(request):
         if request.method == 'POST':
             user_delete_cleaner_function(user_members=user_members)
             u.delete()
-
-            context = {'username': username}
-
-            return render(request, 'userAuth/en/delete_success.html', context)
+            return redirect(reverse('user_delete_success_view'))
 
     return render(request, 'userAuth/en/delete_user.html', context)
+
+def user_delete_success_view(request):
+    context = {}
+    return render(request, 'userAuth/en/delete_success.html', context)
 
 # ----------------------------- ITALIAN -----------------------------
 # -----------------------------  AHEAD  -----------------------------
@@ -177,9 +178,10 @@ def delete_user_it(request):
         if request.method == 'POST':
             user_delete_cleaner_function(user_members=user_members)
             u.delete()
-
-            context = {'username': username}
-
-            return render(request, 'userAuth/it/delete_success_it.html', context)
+            return redirect(reverse('user_delete_success_view_it'))
 
     return render(request, 'userAuth/it/delete_user_it.html', context)
+
+def user_delete_success_view_it(request):
+    context = {}
+    return render(request, 'userAuth/it/delete_success_it.html', context)
