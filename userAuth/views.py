@@ -33,10 +33,10 @@ def login_user(request):
 
         else:
             messages.success(request, ("There was an error logging in."))
-            return render(request, 'userAuth/login.html', context)
+            return render(request, 'userAuth/en/login.html', context)
             
     else:
-        return render(request, 'userAuth/login.html', context)
+        return render(request, 'userAuth/en/login.html', context)
 
 def logout_user(request):
     context = {
@@ -119,6 +119,33 @@ def user_delete_success_view(request):
 # -----------------------------  AHEAD  -----------------------------
 # -----------------------------  TREAD  -----------------------------
 # --------------------------- PASTAFULLY ----------------------------
+
+def login_user_it(request):
+    system_messages = messages.get_messages(request)
+    for message in system_messages:
+        pass
+
+    request.session['logged_user'] = ''
+    context = {}
+
+    system_messages = messages.get_messages(request)
+    for message in system_messages:
+        pass
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            request.session['logged_user'] = username
+            return redirect('member_list_view', logged_user=username)
+
+        else:
+            messages.success(request, ("C'è stato un errore nell'accesso."))
+            return render(request, 'userAuth/it/login_it.html', context)
+            
+    else:
+        return render(request, 'userAuth/it/login_it.html', context)
 
 def logout_user_it(request):
     context = {

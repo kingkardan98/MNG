@@ -1,0 +1,57 @@
+{% extends 'html/base.html' %}
+
+{% block html_title %}
+MNNG - Login
+{% endblock %}
+
+{% block navbar %}
+
+<div class="navbarFlex">
+  {% include 'html/en/navbar.html' %}
+  <p>
+    <a href="{% url 'login_user_it' %}" class="navbarColor">🇮🇹 Cambia lingua</a>
+</p>
+</div>
+
+{% endblock %}
+
+{% block body_content %}
+<h1 class="center">Login</h1>
+
+{% if messages %}
+<ul>
+{% for message in messages %}
+{% if not message.used %}
+  <li> {{ message }}</li>
+{% endif %}
+{% endfor %}  
+</ul>
+{% endif %}
+<div class="center">
+  <form method="POST"> {% csrf_token %}
+    <div class="form-group inline-div">
+      <label for="exampleInputUsername">Username</label>
+      <input type="text" 
+             class="form-control" 
+             name="username" 
+             aria-describedby="emailHelp" 
+             placeholder="Enter username">
+    </div>
+    <div></div>
+    <div class="form-group inline-div">
+      <label for="exampleInputPassword">Password</label>
+      <input type="password" 
+             class="form-control" 
+             name="password" 
+             placeholder="Password">
+    </div>
+    <div></div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+{% if redirect %}
+  <a href="{% url 'member_list_view' logged_user=username %}">See members list</a>
+{% endif %}
+
+{% endblock %}
