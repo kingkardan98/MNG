@@ -5,6 +5,14 @@ MNNG - Eliminazione riuscita
 {% endblock %}
 
 {% block navbar %}
+
+<div class="navbarFlex">
+    {% include 'html/it/navbar_it.html' %}
+    <p>
+        <a href="{% url 'delete_success_view' %}" class="navbarColor">🇬🇧 Change language</a></li>
+    </p>
+</div>
+
 {% endblock %}
 
 {% block body_content %}

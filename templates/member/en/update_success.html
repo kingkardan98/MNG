@@ -5,6 +5,14 @@ MNNG - Update successful
 {% endblock %}
 
 {% block navbar %}
+
+<div class="navbarFlex">
+    {% include 'html/en/navbar.html' %}
+    <p>
+        <a href="{% url 'update_success_view_it' %}" class="navbarColor">🇮🇹 Cambia lingua</a></li>
+    </p>
+</div>
+
 {% endblock %}
 
 {% block body_content %}

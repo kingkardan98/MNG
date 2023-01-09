@@ -5,6 +5,14 @@ MNNG - Non autorizzato
 {% endblock %}
 
 {% block navbar %}
+
+<div class="navbarFlex">
+    {% include 'html/it/navbar_it.html' %}
+    <p>
+        <a href="{% url 'refused' %}" class="navbarColor">🇬🇧 Change language</a></li>
+    </p>
+</div>
+
 {% endblock %}
 
 {% block body_content %}

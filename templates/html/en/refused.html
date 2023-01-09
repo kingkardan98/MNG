@@ -4,6 +4,17 @@
 MNNG - Forbidden
 {% endblock %}
 
+{% block navbar %}
+
+<div class="navbarFlex">
+{% include 'html/en/navbar.html' %}
+<p>
+    <a href="{% url 'refused_it' %}" class="navbarColor">🇮🇹 Cambia lingua</a></li>
+</p>
+</div>
+
+{% endblock %}
+
 {% block body_content %}
 
 <h1>You shouldn't be here!</h1>
