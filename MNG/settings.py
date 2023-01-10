@@ -30,13 +30,18 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# Turn this into True for local deployment.
+DEBUG = False
 
+# Comment this out for local deployment.
 ALLOWED_HOSTS = [
-    'frbambina.eu.pythonanywhere.com',
-    '127.0.0.1',
-    'localhost']
+    'frbambina.eu.pythonanywhere.com']
 
+# Uncomment this for local deployment.
+# ALLOWED_HOSTS = [
+#     '127.0.0.1',
+#     'localhost'
+# ]
 
 # Application definition
 
