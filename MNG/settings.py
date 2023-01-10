@@ -26,7 +26,9 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'frbambina.eu.pythonanywhere.com']
+    'frbambina.eu.pythonanywhere.com',
+    '127.0.0.1:8000',
+    'localhost']
 
 
 # Application definition
