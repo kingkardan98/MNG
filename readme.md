@@ -6,7 +6,9 @@ It simulates a money manager, in a simple but elegant way: a user can create mul
 
 The website is fully written in Python, and it uses a lightweight SQLite3 database.
 Resource routing, HTTP responses and database operations are all managed using the <a href='https://www.djangoproject.com'>Django framework.</a>
-Basic HTML is used to render the website, and CSS is still missing at this point.
+Basic HTML is used to render the website, with some CSS and JavaScript styling.
+
+Now hosted on <a href='http://frbambina.eu.pythonanywhere.com/'>PythonAnywhere.</a>
 
 Still extremely proud of the project's size and attention to detail.
 
