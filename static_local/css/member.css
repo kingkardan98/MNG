@@ -1,0 +1,75 @@
+.collapsible {
+    background-color: #305a82;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    padding-left: 18px;
+    width: 400px;
+    border: 1px;
+    border-radius: 5px;
+    border-color: black;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+  
+.active, .collapsible:hover {
+    background-color: #4484c0
+}
+  
+.collapsibleContent {
+    padding: 0 18px;
+    width: 400px;
+    padding-top: -20px;
+    display: none;
+    overflow: hidden;
+    background: #f1f1f1;}
+
+.editCollapsible{
+    background-color: #305a82;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    padding-left: 18px;
+    width: 400px;
+    border: 1px;
+    border-radius: 5px;
+    border-color: black;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .editCollapsible:hover {
+    background-color: #4484c0
+}
+  
+.editCollapsibleContent {
+    padding: 0 18px;
+    width: 400px;
+    padding-top: -20px;
+    display: none;
+    overflow: hidden;
+    background: #f1f1f1;}
+
+.arrow {
+        margin: 0em;
+      }
+      
+.arrow::before {
+        position: absolute;
+        margin-left: 355px;
+        margin-top: 8px;
+        content: '';
+        width: 0;
+        height: 0;
+        border: .3em solid transparent;
+        border-left-color: white;
+        transform-origin: 0 50%;
+        transition: transform .25s;
+      }
+      
+.arrow.down::before {
+        transform: rotate(90deg);
+        transition: transform .25s;
+      }
