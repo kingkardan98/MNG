@@ -1,6 +1,6 @@
 <p> <a href="/en/contacts" class="navbarColor" style="padding-left: 10px;">Contacts</a> </p>
 <p> <a href="/en/about" class="navbarColor">About</a> </p>
-<p> <a href="/en" class="navbarColor">Home page</a> </p> 
+<p> <a href="/en" class="navbarColor">Home page</a> </p>
 {% if user.is_authenticated %}
     <p> <a href="{% url 'member_list_view' logged_user=user.username %}" class="navbarColor">See members list</a></p>
     <p> <a href="/en/create_member" class="navbarColor">Create member</a> </p>
