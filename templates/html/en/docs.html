@@ -17,10 +17,12 @@ MNNG - Documentation
 
 {% block body_content %}
 
+{% load static %}
+
 <h1>Documentazione</h1>
 
-<p><a href="{% static 'pdf-test.pdf'%}" download="docs">Scarica il PDF</a></p>
+<p><a href={% static 'pdf-test.pdf'%} download="docs">Scarica il PDF</a></p>
 
-<iframe src="{% static 'pdf-test.pdf'%}" width="95%" height="500px"></iframe>
+<iframe src={% static 'pdf-test.pdf'%} width="95%" height="500px"></iframe>
 
 {% endblock %}
