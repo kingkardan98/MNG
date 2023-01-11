@@ -33,6 +33,7 @@ urlpatterns = [
     path('en/', home_view, name='home'),                                                                        # pages.views
     path('en/contacts/', contacts_view, name='contacts'),                                                       # pages.views
     path('en/about/', about_view, name='about_view'),                                                           # pages.views
+    path('en/docs', docs_view, name='docs_view'),                                                               # pages.views
     path('en/refused/', refused, name='refused'),                                                               # pages.views
 
     path('en/create_member/', member_create_view, name='member_create_view'),                                   # member.views
@@ -57,6 +58,7 @@ urlpatterns = [
     path('it', home_view_it, name='home_view_it'),                                                              # pages.views
     path('it/contacts/', contacts_view_it, name='contacts_it'),                                                 # pages.views
     path('it/about/', about_view_it, name='about_view_it'),                                                     # pages.views
+    path('it/docs', docs_view_it, name='docs_view_it'),                                                         # pages.views
     path('it/refused/', refused_it, name='refused_it'),                                                         # pages.views
 
     path('it/create_member/', member_create_view_it, name='member_create_view_it'),                             # member.views

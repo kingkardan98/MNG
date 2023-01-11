@@ -25,6 +25,10 @@ def about_view(request):
 
     return render(request, "html/en/about_view.html", context)
 
+def docs_view(request):
+    context = {}
+    return render(request, "html/en/docs.html", context)
+
 def refused(request):
     return render(request, 'html/en/refused.html', {}, status=401)
 
@@ -52,6 +56,10 @@ def about_view_it(request):
     }
 
     return render(request, "html/it/about_view_it.html", context)
+
+def docs_view_it(request):
+    context = {}
+    return render(request, "html/it/docs_it.html", context)
 
 def refused_it(request):
     return render(request, 'html/it/refused_it.html', {}, status=401)
