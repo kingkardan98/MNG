@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 # Create your views here.
 
@@ -10,17 +9,18 @@ def home_view(request):
     return render(request, "html/en/home_view.html", {})
 
 def contacts_view(request):
+    contacts_dict = {"Email": "fr.bambina@gmail.com", "Linkedin": ""}
     context = {
         "contacts_text": "Contact information",
-        "contacts_dict": {"mary": "123", "jackson": "000", "meeseeks": "4446064447777833777063377773333557777"} 
+        "contacts_dict": contacts_dict
     }
     return render(request, "html/en/contacts_view.html", context)
 
 def about_view(request):
     context = {
         "about": "This website is a small project created by me as a presentation for a job interview.",
-        "email": "mail@mailservice.com",
-        "phone": "123 4567890"
+        "email": "fr.bambina@gmail.com",
+        "phone": "Write me an email to get in contact with me through the phone!"
     }
 
     return render(request, "html/en/about_view.html", context)
@@ -37,17 +37,18 @@ def home_view_it(request):
     return render(request, "html/it/home_view_it.html", {})
 
 def contacts_view_it(request):
+    contacts_dict = {"Email": "fr.bambina@gmail.com", "Linkedin": ""}
     context = {
         "contacts_text": "Contatti",
-        "contacts_dict": {"mary": "123", "jackson": "000", "meeseeks": "4446064447777833777063377773333557777"} 
+        "contacts_dict": contacts_dict
     }
     return render(request, "html/it/contacts_view_it.html", context)
 
 def about_view_it(request):
     context = {
         "about": "Questo sito internet è un piccolo progetto creato da me come presentazione per un'offerta di lavoro.",
-        "email": "mail@mailservice.com",
-        "phone": "123 4567890"
+        "email": "fr.bambina@gmail.com",
+        "phone": "Scrivimi un'email per metterti in contatto telefonicamente!"
     }
 
     return render(request, "html/it/about_view_it.html", context)
