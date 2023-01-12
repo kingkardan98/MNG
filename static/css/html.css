@@ -4,6 +4,10 @@ body {
     background-color: #C4DBF1;
 }
 
+.waves {
+    text-align: left;
+}
+
 .gap5{
     width: 100%;
     height: 5px;

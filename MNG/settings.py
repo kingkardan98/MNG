@@ -22,26 +22,26 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # Comment this section out for local deployment
-SECRET_KEY = os.getenv("SECRET_KEY")
+# SECRET_KEY = os.getenv("SECRET_KEY")
 
 # Uncomment this section out for local deployment
-# from dotenv import load_dotenv, find_dotenv
-# load_dotenv(find_dotenv())
-# SECRET_KEY = os.environ['SECRET_KEY']
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv())
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Turn this into True for local deployment.
-DEBUG = False
+DEBUG = True
 
 # Comment this out for local deployment.
-ALLOWED_HOSTS = [
-    'frbambina.eu.pythonanywhere.com']
+# ALLOWED_HOSTS = [
+#     'frbambina.eu.pythonanywhere.com']
 
 # Uncomment this for local deployment.
-# ALLOWED_HOSTS = [
-#     '127.0.0.1',
-#     'localhost'
-# ]
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost'
+]
 
 # Application definition
 
