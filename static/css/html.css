@@ -6,10 +6,9 @@ body {
 }
 
 .footer{
-    position: relative;
+    position: absolute;
     left: 0; right: 0; bottom: 0;
-    height: 10vw;
-    width: 100%;
+    scale: min(max(5%, 1.4vw), 22vw)
 }
 
 .waves {
