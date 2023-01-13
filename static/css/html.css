@@ -5,6 +5,7 @@ body {
 }
 
 .footer{
+    margin: 0%;
     position: relative;
     left: 0px; right: 0; bottom: 100%;
     scale: 50%;
