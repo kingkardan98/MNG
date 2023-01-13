@@ -8,7 +8,7 @@ body {
 .footer{
     position: absolute;
     left: 0; right: 0; bottom: 0;
-    scale: min(max(5%, 1.4vw), 22vw);
+    scale: min(max(5%, 0.1vw), 1.2vw);
 }
 .gap5{
     width: 100%;
