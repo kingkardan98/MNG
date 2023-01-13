@@ -5,9 +5,9 @@ body {
 }
 
 .footer{
-    margin: left;
+    margin-left: 0vw;
+    margin: 0vw;
     width: 100%;
-    scale: 50%;
 }
 
 .waves {
