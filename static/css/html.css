@@ -8,7 +8,7 @@ body {
 .footer{
     position: absolute;
     left: 0; right: 0; bottom: 0;
-    scale: min(max(5%, 0.01vw), 0.01vw);
+    scale: 10%;
 }
 
 .waves {
