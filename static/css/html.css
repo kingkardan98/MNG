@@ -2,6 +2,13 @@ body {
     font-family: 'Comfortaa';
     padding-left: 0px;
     background-color: #C4DBF1;
+    padding-bottom: 22vw;
+}
+
+.footer{
+    position: relative;
+    left: 0; right: 0; bottom: 0;
+    height: min(0, 22vw);
 }
 
 .waves {
