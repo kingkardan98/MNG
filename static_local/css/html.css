@@ -5,12 +5,8 @@ body {
     padding-bottom: 22vw;
 }
 
-.footer{
-    margin-left: 0vw;
-    margin: 0vw;
-    width: 100%;
-    align-content: bottom;
-    align-self: bottom;
+.waves {
+    text-align: left;
 }
 
 .gap5{
