@@ -6,10 +6,13 @@ body {
 }
 
 .footer{
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    scale: min(max(5%, 0.1vw), 1.2vw);
+    margin-left: 0vw;
+    margin: 0vw;
+    width: 100%;
+    align-content: bottom;
+    align-self: bottom;
 }
+
 .gap5{
     width: 100%;
     height: 5px;
