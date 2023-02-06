@@ -19,10 +19,38 @@ Still extremely proud of the project's size and attention to detail.
 
 # How to deploy the website locally?
 
-Simple! Navigate to <mark style='background-color: gray;'>MNG/settings.py</mark> and follow the instructions given by the code, as shown below:
+## Correctly setup Python
+
+Make sure you have setup Python with these packages:
 
 ```python
+Django==4.1.3
+django_simple_history==3.2.0
+pytz==2022.7
+```
 
+The use of a virtual enviroment is highly encouraged, as it is incredibly simple to setup:
+
+```cmd
+> pip install virtualenv
+> virtualenv location/of/venv
+```
+
+Mac OS / Linux:
+```cmd
+> source location/of/venv/bin/activate
+```
+
+Windows:
+```cmd
+> source location\\of\\venv\\Scripts\\activate
+```
+
+## Deploying the website
+
+Navigate to <mark style='background-color: gray;'>MNG/settings.py</mark> and follow the instructions given by the code, as shown below:
+
+```python
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # Comment this section out for local deployment
@@ -36,14 +64,13 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 # Turn this into True for local deployment.
 DEBUG = False
-
 ```
 
 At this point, in your root directory, run two commands:
 
 ```
-- python3 manage.py makemigrations
-- python3 manage.py migrate
+> python3 manage.py makemigrations
+> python3 manage.py migrate
 ```
 
 This initializes the database.
@@ -51,7 +78,7 @@ This initializes the database.
 Finally, create a super user using the command
 
 ```
-python3 manage.py createsuperuse
+python3 manage.py createsuperuser
 ```
 The prompt itself will guide you. With this account, you will be able to access your local admin page, and manage the database hands-on from there.
 
