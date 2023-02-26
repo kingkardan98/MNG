@@ -2,4 +2,3 @@ Color Palette
 
 093967 - Indigo Dye
 F5E0B7 - Wheat
-D6BA73 - Vegas Gold
