@@ -1,8 +1,0 @@
-Features to implement:
-
-- Creating a Django user, so:
-    > Manage CRUD operations of such user in userAuth app
-
-- Associate certain members to certain Django users
-
-That is it. Not simple at all but I'll try my best.
