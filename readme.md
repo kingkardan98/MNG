@@ -27,6 +27,7 @@ Make sure you have setup Python with these packages:
 Django==4.1.3
 django_simple_history==3.2.0
 pytz==2022.7
+MarkupSafe==2.1.3
 ```
 
 The use of a virtual enviroment is highly encouraged, as it is incredibly simple to setup:
