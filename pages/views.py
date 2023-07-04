@@ -9,7 +9,10 @@ def home_view(request):
     return render(request, "html/en/home_view.html", {})
 
 def contacts_view(request):
-    contacts_dict = {"Email": "fr.bambina@gmail.com", "Linkedin": ""}
+    mail_string = '<a href="mailto:fr.bambina@gmail.com"> fr.bambina@gmail.com </a>'
+    link_string = '<a href="https://www.linkedin.com/in/francescobambina"> francescobambina </a>'
+
+    contacts_dict = {"Email": mail_string, "Linkedin": link_string}
     context = {
         "contacts_text": "Contact information",
         "contacts_dict": contacts_dict
@@ -19,8 +22,6 @@ def contacts_view(request):
 def about_view(request):
     context = {
         "about": "This website is a small project created by me as a presentation for a job interview.",
-        "email": "fr.bambina@gmail.com",
-        "phone": "Write me an email to get in contact with me through the phone!"
     }
 
     return render(request, "html/en/about_view.html", context)
@@ -37,7 +38,10 @@ def home_view_it(request):
     return render(request, "html/it/home_view_it.html", {})
 
 def contacts_view_it(request):
-    contacts_dict = {"Email": "fr.bambina@gmail.com", "Linkedin": ""}
+    mail_string = '<a href="mailto:fr.bambina@gmail.com"> fr.bambina@gmail.com </a>'
+    link_string = '<a href="https://www.linkedin.com/in/francescobambina"> francescobambina </a>'
+
+    contacts_dict = {"Email": mail_string, "Linkedin": link_string}
     context = {
         "contacts_text": "Contatti",
         "contacts_dict": contacts_dict
@@ -47,8 +51,6 @@ def contacts_view_it(request):
 def about_view_it(request):
     context = {
         "about": "Questo sito internet è un piccolo progetto creato da me come presentazione per un'offerta di lavoro.",
-        "email": "fr.bambina@gmail.com",
-        "phone": "Scrivimi un'email per metterti in contatto telefonicamente!"
     }
 
     return render(request, "html/it/about_view_it.html", context)

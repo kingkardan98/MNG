@@ -23,7 +23,7 @@ MNNG - Contacts
     {{ contacts_text }}
     <ul>
         {% for contact, number in contacts_dict.items %}
-        <li> {{ contact|capfirst }} : {{ number }}</li>
+        <li> {{ contact|capfirst }} : {{ number|safe }}</li>
         {% endfor %}
     </ul>
 </p>
