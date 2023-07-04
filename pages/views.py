@@ -20,8 +20,17 @@ def contacts_view(request):
     return render(request, "html/en/contacts_view.html", context)
 
 def about_view(request):
+    description = """
+    This website is a small project created by me as a presentation for a job interview.
+    It is (even though it's a tiny website) a labor of love.
+    I've learned to use some technologies through this development project.
+    The website's backend is fully written in Python, and it uses a lightweight SQLite3 database.
+    Resource routing, HTTP responses and database operations are all managed using the Django framework.
+    Basic HTML is used to render the website, with some CSS and JavaScript styling.
+    """
+
     context = {
-        "about": "This website is a small project created by me as a presentation for a job interview.",
+        "about": description,
     }
 
     return render(request, "html/en/about_view.html", context)
@@ -49,8 +58,17 @@ def contacts_view_it(request):
     return render(request, "html/it/contacts_view_it.html", context)
 
 def about_view_it(request):
+    description = """
+    Questo sito è un piccolo progetto creato da me come presentazione per un possibile colloquio di lavoro.
+    Per quanto piccolo, è un progetto nato dall'amore per la programmazione.
+    Ho imparato le tecnologie richieste attraverso lo sviluppo di questo progetto.
+    Il backend del sito è scritto interamente in Python, e utilizza un database leggero SQlite3.
+    Resource routing, chiamate HTTP e operazioni sul database sono gestite tramite il framework Django.
+    HTML di base, CSS e JavaScripti sono utilizzati per la parte grafica del sito.
+    """
+
     context = {
-        "about": "Questo sito internet è un piccolo progetto creato da me come presentazione per un'offerta di lavoro.",
+        "about": description,
     }
 
     return render(request, "html/it/about_view_it.html", context)
