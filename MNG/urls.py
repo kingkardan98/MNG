@@ -29,7 +29,7 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', choose_language_view, name='choose_language_view'),
-    path('', documentation_view, name='documentatio_view'),
+    path('documentation/', documentation_view, name='documentation_view'),
 
     # All English URL patterns
 
