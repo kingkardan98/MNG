@@ -38,6 +38,9 @@ def about_view(request):
 def refused(request):
     return render(request, 'html/en/refused.html', {}, status=401)
 
+def documentation_view(request):
+    return render(request, 'html/documentation.html', {})
+
 # ----------------------------- ITALIAN -----------------------------
 # -----------------------------  AHEAD  -----------------------------
 # -----------------------------  TREAD  -----------------------------

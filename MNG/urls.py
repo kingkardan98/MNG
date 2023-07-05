@@ -25,8 +25,11 @@ from userAuth.views import *
 
 urlpatterns = [
 
+    # Universal URL patterns
+
     path('admin/', admin.site.urls),
     path('', choose_language_view, name='choose_language_view'),
+    path('', documentation_view, name='documentatio_view'),
 
     # All English URL patterns
 
@@ -53,7 +56,7 @@ urlpatterns = [
     path('en/user_deleted', user_delete_success_view, name='user_delete_success_view'),                         # userAuth.views
 
     # All Italian URL Patterns
-    
+
     path('it', home_view_it, name='home_view_it'),                                                              # pages.views
     path('it/contacts/', contacts_view_it, name='contacts_it'),                                                 # pages.views
     path('it/about/', about_view_it, name='about_view_it'),                                                     # pages.views
